@@ -80,8 +80,8 @@ export default function Home() {
           viewport={{ once: true, amount: 0.2 }}
           className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start"
         >
-          {/* Left: Header + Copy */}
-          <div className="lg:sticky lg:top-32">
+          {/* Left: Header + Copy - sticky with offset for navbar */}
+          <div className="lg:sticky lg:top-24 self-start">
             <SectionHeader
               eyebrow="What We Do"
               title="Honoring the Craft of Building"
