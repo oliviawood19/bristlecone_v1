@@ -8,6 +8,7 @@ interface SectionProps {
   id?: string;
   background?: "default" | "subtle" | "primary";
   showDivider?: boolean;
+  disableAnimation?: boolean;
 }
 
 const sectionVariants = {
@@ -33,6 +34,7 @@ export function Section({
   id,
   background = "default",
   showDivider = false,
+  disableAnimation = false,
 }: SectionProps) {
   const shouldReduceMotion = useReducedMotion();
 
@@ -42,13 +44,17 @@ export function Section({
     primary: "bg-primary text-primary-foreground",
   };
 
+  const motionProps = disableAnimation ? {} : {
+    initial: "hidden",
+    whileInView: "visible",
+    viewport: { once: true, amount: 0.15 },
+    variants: shouldReduceMotion ? reducedMotionVariants : sectionVariants,
+  };
+
   return (
     <motion.section
       id={id}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.15 }}
-      variants={shouldReduceMotion ? reducedMotionVariants : sectionVariants}
+      {...motionProps}
       className={cn(backgroundClasses[background], className)}
     >
       {showDivider && (

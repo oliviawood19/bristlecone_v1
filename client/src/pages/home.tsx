@@ -72,16 +72,16 @@ export default function Home() {
       {/* ========== POST-HERO SECTIONS START ========== */}
 
       {/* Section 1: Welcome (What We Do) */}
-      <Section id="what-we-do" background="default">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start"
-        >
+      <Section id="what-we-do" background="default" disableAnimation>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left: Header + Copy - sticky with offset for navbar */}
-          <div className="lg:sticky lg:top-24 self-start">
+          <motion.div 
+            className="lg:sticky lg:top-24"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
             <SectionHeader
               eyebrow="What We Do"
               title="Honoring the Craft of Building"
@@ -95,19 +95,19 @@ export default function Home() {
                 </p>
               }
             />
-            <motion.div
-              variants={itemVariants}
-              className="border-l-2 border-accent/30 pl-6 py-2"
-            >
+            <div className="border-l-2 border-accent/30 pl-6 py-2">
               <p className="font-serif text-xl md:text-2xl font-medium leading-tight text-primary">
                 We think in decades, not quarters.
               </p>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
 
           {/* Right: At-a-glance blocks */}
           <motion.div
             variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             className="grid gap-6"
           >
             {[
@@ -135,7 +135,6 @@ export default function Home() {
                   "card-editorial group border border-primary/15 hover:border-primary transition-colors duration-200",
                   "hover:bg-primary/[0.03]"
                 )}
-                
               >
                 <h4 className="text-lg md:text-xl font-serif font-bold text-primary mb-2 group-hover:text-primary transition-colors">
                   {item.title}
@@ -146,7 +145,7 @@ export default function Home() {
               </motion.div>
             ))}
           </motion.div>
-        </motion.div>
+        </div>
       </Section>
 
       {/* Section 2: Why Bristlecone (Value Proposition) */}
