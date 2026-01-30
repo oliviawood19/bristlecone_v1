@@ -45,15 +45,12 @@ function CTAPanel({ headline, ctaText, href, variant = "default" }: CTAPanelProp
           }}
         />
 
-        {/* Gentle wash to make it feel designed (tuned per variant) */}
-        <div
-          className={cn(
-            "absolute inset-0",
-            isPrimary
-              ? "bg-gradient-to-br from-black/20 via-black/10 to-transparent"
-              : "bg-gradient-to-br from-background/80 via-background/40 to-transparent"
-          )}
-        />
+        {/* Gentle wash for primary variant only */}
+        {isPrimary && (
+          <div
+            className="absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-transparent"
+          />
+        )}
       </div>
 
       {/* Content */}
