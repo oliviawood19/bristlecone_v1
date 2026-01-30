@@ -7,6 +7,7 @@ interface SectionProps {
   className?: string;
   id?: string;
   background?: "default" | "subtle" | "primary";
+  showDivider?: boolean;
 }
 
 const sectionVariants = {
@@ -30,7 +31,8 @@ export function Section({
   children,
   className,
   id,
-  background = "default"
+  background = "default",
+  showDivider = false
 }: SectionProps) {
   const shouldReduceMotion = useReducedMotion();
 
@@ -41,22 +43,29 @@ export function Section({
   };
 
   return (
-    <motion.section
-      id={id}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.15 }}
-      variants={shouldReduceMotion ? reducedMotionVariants : sectionVariants}
-      className={cn(
-        "py-16 md:py-24 lg:py-32",
-        backgroundClasses[background],
-        className
+    <>
+      {showDivider && (
+        <div className="container-custom">
+          <div className="border-t border-primary" />
+        </div>
       )}
-    >
-      <div className="container-custom">
-        {children}
-      </div>
-    </motion.section>
+      <motion.section
+        id={id}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        variants={shouldReduceMotion ? reducedMotionVariants : sectionVariants}
+        className={cn(
+          "py-16 md:py-24 lg:py-32",
+          backgroundClasses[background],
+          className
+        )}
+      >
+        <div className="container-custom">
+          {children}
+        </div>
+      </motion.section>
+    </>
   );
 }
 

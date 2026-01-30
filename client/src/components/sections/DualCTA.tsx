@@ -13,7 +13,12 @@ interface CTAPanelProps {
   variant?: "default" | "primary";
 }
 
-function CTAPanel({ headline, ctaText, href, variant = "default" }: CTAPanelProps) {
+function CTAPanel({
+  headline,
+  ctaText,
+  href,
+  variant = "default",
+}: CTAPanelProps) {
   const shouldReduceMotion = useReducedMotion();
   const itemVariants = shouldReduceMotion ? reducedStaggerItem : staggerItem;
   const isPrimary = variant === "primary";
@@ -26,7 +31,7 @@ function CTAPanel({ headline, ctaText, href, variant = "default" }: CTAPanelProp
         "flex flex-col justify-between",
         isPrimary
           ? "bg-primary" // keep your token
-          : "bg-primary/[0.03] border border-border/50"
+          : "bg-primary/[0.03] border border-border/50",
       )}
     >
       {/* Background layers (NO blend modes) */}
@@ -35,7 +40,7 @@ function CTAPanel({ headline, ctaText, href, variant = "default" }: CTAPanelProp
         <div
           className={cn(
             "absolute inset-0",
-            isPrimary ? "opacity-[0.08]" : "opacity-[0.06]"
+            isPrimary ? "opacity-[0.08]" : "opacity-[0.06]",
           )}
           style={{
             backgroundImage: `url(${woodGrainPattern})`,
@@ -47,9 +52,7 @@ function CTAPanel({ headline, ctaText, href, variant = "default" }: CTAPanelProp
 
         {/* Gentle wash for primary variant only */}
         {isPrimary && (
-          <div
-            className="absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-transparent"
-          />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-transparent" />
         )}
       </div>
 
@@ -59,7 +62,7 @@ function CTAPanel({ headline, ctaText, href, variant = "default" }: CTAPanelProp
           className={cn(
             "font-serif text-2xl md:text-3xl lg:text-4xl font-bold leading-tight",
             // Force legibility (tokens are betraying you here)
-            isPrimary ? "text-white" : "text-foreground"
+            isPrimary ? "text-white" : "text-foreground",
           )}
         >
           {headline}
@@ -72,9 +75,9 @@ function CTAPanel({ headline, ctaText, href, variant = "default" }: CTAPanelProp
           variant="link-animated"
           className={cn(
             "text-base font-medium",
-            isPrimary 
-              ? "text-white hover:text-white hover:border-white/50" 
-              : "text-foreground"
+            isPrimary
+              ? "text-white hover:text-white hover:border-white/50"
+              : "text-foreground",
           )}
         >
           <a href={href}>
@@ -87,8 +90,10 @@ function CTAPanel({ headline, ctaText, href, variant = "default" }: CTAPanelProp
   );
 }
 
-const ownerMailto = "mailto:info@bristleconecompanies.com?subject=Selling%20My%20Business&body=Name%3A%0ACompany%3A%0ARevenue%2FEBITDA%3A%0ATimeline%3A%0ANotes%3A";
-const talentMailto = "mailto:info@bristleconecompanies.com?subject=Careers%20Inquiry&body=Name%3A%0ARole%20Interest%3A%0ALinkedIn%3A%0AResume%20Link%3A%0ANotes%3A";
+const ownerMailto =
+  "mailto:info@bristleconecompanies.com?subject=Selling%20My%20Business&body=Name%3A%0ACompany%3A%0ARevenue%2FEBITDA%3A%0ATimeline%3A%0ANotes%3A";
+const talentMailto =
+  "mailto:info@bristleconecompanies.com?subject=Careers%20Inquiry&body=Name%3A%0ARole%20Interest%3A%0ALinkedIn%3A%0AResume%20Link%3A%0ANotes%3A";
 
 export function DualCTA() {
   return (
@@ -101,12 +106,12 @@ export function DualCTA() {
     >
       <CTAPanel
         headline="Ready to Sell Your Business?"
-        ctaText="Selling Your Business"
+        ctaText="Get in Touch"
         href={ownerMailto}
         variant="primary"
       />
       <CTAPanel
-        headline="Join Our Team"
+        headline="Excited to Join Our Team?"
         ctaText="Careers"
         href={talentMailto}
         variant="default"

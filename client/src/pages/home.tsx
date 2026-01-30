@@ -150,7 +150,7 @@ export default function Home() {
       </Section>
 
       {/* Section 2: Why Bristlecone (Value Proposition) */}
-      <Section id="why-bristlecone" background="subtle" className="section-chapter">
+      <Section id="why-bristlecone" background="subtle" className="section-chapter" showDivider>
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -215,7 +215,7 @@ export default function Home() {
       </Section>
 
       {/* Section 3: Who We're a Fit For (Qualification) */}
-      <Section id="fit" background="default">
+      <Section id="fit" background="default" showDivider>
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -239,7 +239,7 @@ export default function Home() {
       </Section>
 
       {/* Section 4: What We Offer (How We Create Value) */}
-      <Section id="what-we-offer" background="subtle" className="section-chapter">
+      <Section id="what-we-offer" background="subtle" className="section-chapter" showDivider>
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -292,7 +292,7 @@ export default function Home() {
       </Section>
 
       {/* Section 5: Testimonials (Proof) */}
-      <Section id="testimonials" background="default">
+      <Section id="testimonials" background="default" showDivider>
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -329,7 +329,7 @@ export default function Home() {
       </Section>
 
       {/* Section 6: Dual CTA */}
-      <Section id="cta" background="default">
+      <Section id="cta" background="default" showDivider>
         <DualCTA />
       </Section>
 
