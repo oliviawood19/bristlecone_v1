@@ -72,7 +72,9 @@ function CTAPanel({ headline, ctaText, href, variant = "default" }: CTAPanelProp
           variant="link-animated"
           className={cn(
             "text-base font-medium",
-            isPrimary ? "text-white" : "text-foreground"
+            isPrimary 
+              ? "text-white hover:text-white hover:border-white/50" 
+              : "text-foreground"
           )}
         >
           <a href={href}>
