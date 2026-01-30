@@ -35,7 +35,7 @@ function CTAPanel({ headline, ctaText, href, variant = "default" }: CTAPanelProp
         <div
           className={cn(
             "absolute inset-0",
-            isPrimary ? "opacity-[0.08]" : "opacity-[0.14]"
+            isPrimary ? "opacity-[0.08]" : "opacity-[0.06]"
           )}
           style={{
             backgroundImage: `url(${woodGrainPattern})`,
