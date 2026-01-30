@@ -46,7 +46,7 @@ export function Section({
     <>
       {showDivider && (
         <div className="container-custom">
-          <div className="border-t border-primary" />
+          <div className="h-px w-full bg-primary" />
         </div>
       )}
       <motion.section
