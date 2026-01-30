@@ -1,0 +1,66 @@
+You are a senior front-end engineer. Your task is to make my existing desktop-first web app fully mobile-responsive and touch-friendly, while preserving the current desktop UI and all text/content.
+
+GOALS
+1) Mobile-first responsive behavior (320px → 1440px).
+2) No layout overflow on mobile (no horizontal scrolling).
+3) Touch-friendly interactions (44px min tap targets, safe spacing).
+4) Maintain the same brand fonts and color tokens already in the project.
+5) Do NOT change the copy/text content; only restructure layout/styling.
+6) Keep desktop experience the same or better.
+
+SCOPE
+- Update the layout of all major pages and shared components: header/nav, hero, cards/blocks, forms, modals, tables, and any grids.
+- Add responsive breakpoints and utility classes / CSS, but avoid major refactors unless necessary.
+- Prefer CSS Grid/Flex and responsive utilities over JS-driven layout.
+- If using Tailwind: use responsive classes (sm/md/lg/xl) and container padding.
+- If using CSS modules: create shared responsive helpers and apply consistently.
+
+REQUIREMENTS (CHECKLIST)
+A) GLOBAL
+- Add a responsive meta tag if missing.
+- Ensure the root layout uses max-width containers + responsive padding.
+- Prevent overflow: audit widths, fixed positioning, and large images.
+- Ensure typography scales: clamp() or responsive sizes for headings.
+- Ensure consistent vertical rhythm on mobile (more spacing, fewer columns).
+
+B) NAV / HEADER
+- Desktop nav stays the same.
+- On mobile: collapse nav into a hamburger menu or a simple stacked menu.
+- Sticky header should not cover content; account for safe-area insets.
+
+C) GRIDS / CARDS
+- Convert multi-column grids to 1 column on mobile, 2 columns on small tablets where appropriate.
+- Card padding and text sizes should adjust to avoid cramped layout.
+
+D) FORMS
+- Inputs full-width on mobile, labels readable, error states visible.
+- Make buttons full-width where appropriate; 44px min height.
+
+E) TABLES / DENSE DATA
+- For tables: add horizontal scroll with a container OR transform into stacked rows/cards on mobile.
+
+F) IMAGES / MEDIA
+- Ensure images are responsive: max-width: 100%, height auto.
+- Use object-fit and aspect ratios to avoid stretching.
+
+G) PERFORMANCE / QUALITY
+- Avoid layout shift.
+- Keep animations subtle and performant on mobile.
+
+DELIVERABLES
+1) Implement changes and show me a concise summary of what you changed.
+2) Provide before/after notes for the key components.
+3) Create a small “Responsive QA checklist” and confirm each item is passing.
+
+PROCESS
+- First, scan the project and identify shared layout components and global styles.
+- Second, implement responsive changes incrementally starting with the app shell (layout + nav), then each page section type (hero, grids, cards, forms, tables).
+- Third, test at 320px, 375px, 390px, 414px, 768px.
+- If any page still overflows horizontally, fix it before moving on.
+
+IMPORTANT CONSTRAINTS
+- Do not change copy or information architecture.
+- Do not introduce a new design system; use existing tokens.
+- If you need to add a new utility (e.g., `container` class or `pagePadding`), do it once globally and reuse it.
+
+When you’re done, list the files you changed and why.
