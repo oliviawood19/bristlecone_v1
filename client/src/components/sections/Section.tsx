@@ -43,29 +43,26 @@ export function Section({
   };
 
   return (
-    <>
+    <motion.section
+      id={id}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      variants={shouldReduceMotion ? reducedMotionVariants : sectionVariants}
+      className={cn(
+        backgroundClasses[background],
+        className
+      )}
+    >
       {showDivider && (
         <div className="container-custom">
           <div className="h-px w-full bg-primary" />
         </div>
       )}
-      <motion.section
-        id={id}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.15 }}
-        variants={shouldReduceMotion ? reducedMotionVariants : sectionVariants}
-        className={cn(
-          "py-16 md:py-24 lg:py-32",
-          backgroundClasses[background],
-          className
-        )}
-      >
-        <div className="container-custom">
-          {children}
-        </div>
-      </motion.section>
-    </>
+      <div className="container-custom py-16 md:py-24 lg:py-32">
+        {children}
+      </div>
+    </motion.section>
   );
 }
 
