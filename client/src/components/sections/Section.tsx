@@ -55,9 +55,7 @@ export function Section({
       )}
     >
       {showDivider && (
-        <div className="container-custom">
-          <div className="h-px w-full bg-primary" />
-        </div>
+        <div className="container-custom border-b border-primary" />
       )}
       <div className="container-custom py-16 md:py-24 lg:py-32">
         {children}
