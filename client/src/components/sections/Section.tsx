@@ -44,12 +44,14 @@ export function Section({
     primary: "bg-primary text-primary-foreground",
   };
 
-  const motionProps = disableAnimation ? {} : {
-    initial: "hidden",
-    whileInView: "visible",
-    viewport: { once: true, amount: 0.15 },
-    variants: shouldReduceMotion ? reducedMotionVariants : sectionVariants,
-  };
+  const motionProps = disableAnimation
+    ? {}
+    : {
+        initial: "hidden",
+        whileInView: "visible",
+        viewport: { once: true, amount: 0.15 },
+        variants: shouldReduceMotion ? reducedMotionVariants : sectionVariants,
+      };
 
   return (
     <motion.section
@@ -59,37 +61,39 @@ export function Section({
     >
       {showDivider && (
         <div className="container-custom">
-          <motion.div
-            className="h-px w-1/2 ml-auto bg-primary origin-left"
-            initial={shouldReduceMotion ? false : { scaleX: 0, opacity: 0.9 }}
-            whileInView={
-              shouldReduceMotion
-                ? { scaleX: 1, opacity: 1 }
-                : { scaleX: 1, opacity: 1 }
-            }
-            viewport={{ once: true, amount: 0.15 }}
-            transition={
-              shouldReduceMotion
-                ? { duration: 0 }
-                : { duration: 2, ease: [0.22, 1, 0.36, 1] }
-            }
-          />
+          <div className="relative h-px w-full">
+            {/* Left half: always visible */}
+            <div className="absolute left-0 top-0 h-px w-1/2 bg-primary" />
+
+            {/* Right half: draws from center → right */}
+            <motion.div
+              className="absolute left-1/2 top-0 h-px w-1/2 bg-primary origin-left -ml-px"
+              initial={shouldReduceMotion ? false : { scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={
+                shouldReduceMotion
+                  ? { duration: 0 }
+                  : { duration: 2, ease: [0.22, 1, 0.36, 1] }
+              }
+            />
+          </div>
         </div>
       )}
 
       {showDivider && (
         <div className="container-custom">
-          <div className="flex w-full">
+          <div className="relative h-px w-full">
             {/* Left half: always visible */}
-            <div className="h-px w-1/2 bg-primary" />
+            <div className="absolute left-0 top-0 h-px w-1/2 bg-primary" />
 
             {/* Right half: draws from center → right */}
             <motion.div
-              className="h-px w-1/2 bg-primary origin-left"
+              className="absolute left-1/2 top-0 h-px w-1/2 bg-primary origin-left -ml-px"
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }} // slows near end
             />
           </div>
         </div>
