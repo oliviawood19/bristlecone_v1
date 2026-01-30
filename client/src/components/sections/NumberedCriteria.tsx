@@ -26,7 +26,7 @@ export function NumberedCriteria({ items }: NumberedCriteriaProps) {
         <motion.li
           key={index}
           variants={itemVariants}
-          className="flex gap-6 md:gap-8 items-baseline group"
+          className="flex gap-4 sm:gap-6 md:gap-8 items-baseline group"
         >
           <span className="text-sm font-medium text-accent tabular-nums shrink-0 w-8">
             {String(index + 1).padStart(2, "0")}

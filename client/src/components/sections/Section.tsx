@@ -57,7 +57,7 @@ export function Section({
       {showDivider && (
         <div className="container-custom border-b border-primary" />
       )}
-      <div className="container-custom py-16 md:py-24 lg:py-32">
+      <div className="container-custom py-12 sm:py-16 md:py-24 lg:py-32">
         {children}
       </div>
     </motion.section>

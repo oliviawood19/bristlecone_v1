@@ -22,11 +22,11 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section - PRESERVED EXACTLY */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-background">
+      <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center overflow-hidden bg-background">
         <div className="container-custom pt-24 md:pt-32 pb-20">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div className="text-center lg:text-left z-20 order-2 lg:order-1 flex flex-col items-center lg:items-start">
-              <h1 className="font-serif text-5xl md:text-4xl lg:text-7xl font-bold mb-8 tracking-tighter animate-in fade-in slide-in-from-bottom-8 duration-1000 leading-[1.1]">
+              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tighter animate-in fade-in slide-in-from-bottom-8 duration-1000 leading-[1.1]">
                 <span className="text-primary">Built to </span>
                 <TypewriterText
                   words={["Endure.", "Grow.", "Steward."]}
@@ -62,7 +62,7 @@ export default function Home() {
               <img
                 src={pineconeLogo}
                 alt="Bristlecone Pinecone"
-                className="w-full md:w-3/4 lg:w-full max-w-[700px] h-auto object-contain opacity-90 drop-shadow-xl"
+                className="w-3/4 sm:w-2/3 md:w-3/4 lg:w-full max-w-[500px] lg:max-w-[700px] h-auto object-contain opacity-90 drop-shadow-xl"
               />
             </div>
           </div>
@@ -175,7 +175,7 @@ export default function Home() {
             <span className="text-xs font-medium tracking-[0.2em] text-muted-foreground uppercase block mb-8">
               The Bristlecone Promise
             </span>
-            <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
               {[
                 {
                   num: "01",
@@ -196,12 +196,12 @@ export default function Home() {
                 <motion.div
                   key={item.num}
                   variants={itemVariants}
-                  className="border-l-2 border-accent/30 pl-6"
+                  className="border-l-2 border-accent/30 pl-4 sm:pl-6"
                 >
                   <span className="text-lg font-medium text-accent mb-3 block">
                     {item.num}
                   </span>
-                  <h3 className="text-3xl font-serif font-bold text-primary mb-2">
+                  <h3 className="text-2xl sm:text-3xl font-serif font-bold text-primary mb-2">
                     {item.title}
                   </h3>
                   <p className="text-muted-primary">
@@ -250,7 +250,7 @@ export default function Home() {
             eyebrow="How We Create Value"
             title="What We Offer"
           />
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {[
               {
                 icon: Landmark,

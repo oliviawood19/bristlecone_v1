@@ -107,6 +107,9 @@
   * {
     @apply border-border;
   }
+  html, body {
+    @apply overflow-x-hidden;
+  }
   body {
     @apply font-sans antialiased bg-background text-foreground selection:bg-accent/20 selection:text-accent-foreground;
   }
@@ -157,7 +160,7 @@
   }
 
   .card-editorial {
-    @apply border border-border/50 rounded-2xl p-6 md:p-8;
+    @apply border border-border/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8;
   }
 
   /* Section chapter backgrounds */

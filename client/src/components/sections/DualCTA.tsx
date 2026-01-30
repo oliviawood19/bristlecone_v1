@@ -27,7 +27,7 @@ function CTAPanel({
     <motion.div
       variants={itemVariants}
       className={cn(
-        "relative overflow-hidden rounded-2xl md:rounded-3xl p-8 md:p-12 lg:p-16 min-h-[280px]",
+        "relative overflow-hidden rounded-xl sm:rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 min-h-[240px] sm:min-h-[280px]",
         "flex flex-col justify-between",
         isPrimary
           ? "bg-primary" // keep your token
@@ -60,7 +60,7 @@ function CTAPanel({
       <div className="relative z-10">
         <h3
           className={cn(
-            "font-serif text-2xl md:text-3xl lg:text-4xl font-bold leading-tight",
+            "font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight",
             // Force legibility (tokens are betraying you here)
             isPrimary ? "text-white" : "text-foreground",
           )}

@@ -22,14 +22,14 @@ const buttonVariants = cva(
         ghost: "border border-transparent",
         link: "text-primary underline-offset-4 hover:underline",
         "link-animated":
-          "bg-transparent text-foreground/80 hover:text-primary transition-colors font-medium border-b border-transparent hover:border-primary/50 rounded-none h-auto p-0 px-0 gap-2 hover:bg-transparent justify-start",
+          "bg-transparent text-foreground/80 hover:text-primary transition-colors font-medium border-b border-transparent hover:border-primary/50 rounded-none min-h-11 py-2 px-0 gap-2 hover:bg-transparent justify-start",
       },
       size: {
-        // @replit changed sizes
-        default: "min-h-9 px-4 py-2",
-        sm: "min-h-8 rounded-md px-3 text-xs",
-        lg: "min-h-10 rounded-md px-8",
-        icon: "h-9 w-9",
+        // @replit changed sizes - updated for 44px touch targets
+        default: "min-h-11 px-4 py-2",
+        sm: "min-h-9 rounded-md px-3 text-xs",
+        lg: "min-h-12 rounded-md px-8",
+        icon: "h-11 w-11",
       },
     },
     defaultVariants: {

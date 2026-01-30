@@ -26,7 +26,7 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        "mb-12 md:mb-16",
+        "mb-8 sm:mb-12 md:mb-16",
         align === "center" && "text-center",
         className
       )}
@@ -40,7 +40,7 @@ export function SectionHeader({
       <motion.h2
         variants={itemVariants}
         className={cn(
-          "font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight",
+          "font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4 sm:mb-6 leading-tight",
           titleClassName
         )}
       >

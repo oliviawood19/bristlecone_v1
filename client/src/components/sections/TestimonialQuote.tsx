@@ -42,15 +42,15 @@ export function TestimonialGrid({ testimonials }: TestimonialGridProps) {
   const itemVariants = shouldReduceMotion ? reducedStaggerItem : staggerItem;
 
   return (
-    <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
       {testimonials.map((testimonial, index) => (
         <motion.div
           key={index}
           variants={itemVariants}
-          className="border border-border/50 rounded-2xl p-6 md:p-8"
+          className="border border-border/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8"
         >
           <Quote className="w-6 h-6 text-accent/40 mb-4" />
-          <blockquote className="font-serif text-lg md:text-xl leading-relaxed text-foreground mb-6">
+          <blockquote className="font-serif text-base sm:text-lg md:text-xl leading-relaxed text-foreground mb-4 sm:mb-6">
             "{testimonial.quote}"
           </blockquote>
           <footer className="pt-4 border-t border-border/50 text-sm text-muted-foreground">
