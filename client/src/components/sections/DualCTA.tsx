@@ -69,19 +69,15 @@ function CTAPanel({ headline, ctaText, href, variant = "default" }: CTAPanelProp
       <div className="relative z-10 pt-8">
         <Button
           asChild
-          // Choose variants that guarantee readable text
-          variant={isPrimary ? "secondary" : "default"}
+          variant="link-animated"
           className={cn(
-            "text-base",
-            // Make sure the default card button isn't white-on-white
-            !isPrimary && "bg-background text-foreground border border-border/60 hover:bg-background/90",
-            // Ensure primary panel CTA looks crisp
-            isPrimary && "text-foreground"
+            "text-base font-medium",
+            isPrimary ? "text-white" : "text-foreground"
           )}
         >
           <a href={href}>
             {ctaText}
-            <ArrowRight className="w-4 h-4 ml-2" />
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
         </Button>
       </div>
