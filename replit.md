@@ -32,3 +32,15 @@ A React frontend website built with Vite, using Tailwind CSS for styling and var
 ## Configuration
 - The development server binds to `0.0.0.0:5000` and allows all hosts for Replit compatibility
 - Static builds are output to the `dist/` directory
+
+## Mobile Responsiveness
+The site is fully mobile-responsive with the following design decisions:
+- **Touch targets**: All buttons have minimum 44px height for accessibility
+- **Typography scaling**: Uses progressive sizing (text-xl -> sm:text-2xl -> md:text-3xl -> lg:text-4xl)
+- **Grid breakpoints**: 
+  - Mobile: 1 column
+  - Small (640px+): 2 columns
+  - Medium (768px+): Varies by section
+  - Large (1024px+): Full desktop layouts
+- **Spacing**: Responsive padding (p-4 -> sm:p-6 -> md:p-8) and section margins
+- **Overflow**: `overflow-x-hidden` applied globally to prevent horizontal scrolling
