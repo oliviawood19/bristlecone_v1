@@ -3,8 +3,13 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Quote, Landmark, Shield, Users, Target } from "lucide-react";
+import { ArrowRight, Quote } from "lucide-react";
 import pineconeLogo from "@assets/pinecone-logo-transparent.png";
+import bristleconeTreeImg from "@assets/drawn_bristlecone.png";
+import rootsIcon from "@assets/roots-icon.png";
+import twotreesIcon from "@assets/twotrees-icon.png";
+import treesIcon from "@assets/trees-icon.png";
+import fingerprintIcon from "@assets/fingerprint-icon.png";
 import { TypewriterText } from "@/components/ui/typewriter-text";
 import { Section, staggerContainer, staggerItem, reducedStaggerItem } from "@/components/sections/Section";
 import { SectionHeader } from "@/components/sections/SectionHeader";
@@ -220,20 +225,36 @@ export default function Home() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
+          className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"
         >
-          <SectionHeader
-            eyebrow="Who We're a Fit For"
-            title="The Right Partnership"
-          />
-          <NumberedCriteria
-            items={[
-              { text: "Bootstrapped founders who've built something enduring" },
-              { text: "Businesses measuring success in decades, not quarters" },
-              { text: "Leaders who value their team's growth" },
-              { text: "Companies with a core DNA worth preserving" },
-              { text: "Operators seeking institutional rigor with family-business care" }
-            ]}
-          />
+          {/* Left column: Text content */}
+          <div>
+            <SectionHeader
+              eyebrow="Who We're a Fit For"
+              title="The Right Partnership"
+            />
+            <NumberedCriteria
+              items={[
+                { text: "Bootstrapped founders who've built something enduring" },
+                { text: "Businesses measuring success in decades, not quarters" },
+                { text: "Leaders who value their team's growth" },
+                { text: "Companies with a core DNA worth preserving" },
+                { text: "Operators seeking institutional rigor with family-business care" }
+              ]}
+            />
+          </div>
+
+          {/* Right column: Tree illustration */}
+          <motion.div
+            className="flex justify-center lg:justify-end"
+            variants={itemVariants}
+          >
+            <img
+              src={bristleconeTreeImg}
+              alt="Bristlecone pine tree illustration"
+              className="w-full max-w-900px lg:max-w-10xl h-auto object-contain"
+            />
+          </motion.div>
         </motion.div>
       </Section>
 
@@ -252,22 +273,22 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {[
               {
-                icon: Landmark,
+                icon: rootsIcon,
                 title: "Permanent Capital",
                 desc: "We buy to hold forever. No flips, no exits, no short-term horizons. Your legacy is safe with us because we measure success in decades, not quarters."
               },
               {
-                icon: Shield,
+                icon: twotreesIcon,
                 title: "Preserve What Works",
                 desc: "You didn't build something great by accident. We protect the core DNA of your business and honor the history that got you here."
               },
               {
-                icon: Users,
+                icon: treesIcon,
                 title: "Invest in People",
                 desc: "Businesses don't compound—people do. We introduce systems, training, and growth opportunities for your team."
               },
               {
-                icon: Target,
+                icon: fingerprintIcon,
                 title: "Operate with Discipline",
                 desc: "Institutional rigor with the care of a family business. We bring excellence in the margins without losing the soul."
               }
@@ -277,7 +298,7 @@ export default function Home() {
                 variants={itemVariants}
                 className="card-editorial"
               >
-                <item.icon className="w-6 h-6 text-primary mb-4" strokeWidth={1.5} />
+                <img src={item.icon} alt="" className="w-20 h-20 mb-4 object-contain" />
                 <h4 className="text-xl font-serif font-bold text-foreground mb-3">
                   {item.title}
                 </h4>

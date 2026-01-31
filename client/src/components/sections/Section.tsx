@@ -60,42 +60,22 @@ export function Section({
       className={cn(backgroundClasses[background], className)}
     >
       {showDivider && (
-        <div className="container-custom">
-          <div className="relative h-px w-full">
-            {/* Left half: always visible */}
-            <div className="absolute left-0 top-0 h-px w-1/2 bg-primary" />
+        <div className="container-custom relative">
+          {/* Left half: always visible */}
+          <div className="absolute left-0 right-1/2 top-0 border-b border-primary" />
 
-            {/* Right half: draws from center → right */}
-            <motion.div
-              className="absolute left-1/2 top-0 h-px w-1/2 bg-primary origin-left -ml-px"
-              initial={shouldReduceMotion ? false : { scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={
-                shouldReduceMotion
-                  ? { duration: 0 }
-                  : { duration: 2, ease: [0.22, 1, 0.36, 1] }
-              }
-            />
-          </div>
-        </div>
-      )}
-
-      {showDivider && (
-        <div className="container-custom">
-          <div className="relative h-px w-full">
-            {/* Left half: always visible */}
-            <div className="absolute left-0 top-0 h-px w-1/2 bg-primary" />
-
-            {/* Right half: draws from center → right */}
-            <motion.div
-              className="absolute left-1/2 top-0 h-px w-1/2 bg-primary origin-left -ml-px"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }} // slows near end
-            />
-          </div>
+          {/* Right half: draws from center → right */}
+          <motion.div
+            className="absolute left-1/2 right-0 top-0 border-b border-primary origin-left"
+            initial={shouldReduceMotion ? { scaleX: 1 } : { scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: false, amount: 0.9 }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : { duration: 2, ease: [0.22, 1, 0.36, 1] }
+            }
+          />
         </div>
       )}
 
