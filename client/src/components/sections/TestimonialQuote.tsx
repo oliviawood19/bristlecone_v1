@@ -47,15 +47,15 @@ export function TestimonialGrid({ testimonials }: TestimonialGridProps) {
         <motion.div
           key={index}
           variants={itemVariants}
-          className="border border-border/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8"
+          className="bg-primary rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8"
         >
-          <Quote className="w-6 h-6 text-accent/40 mb-4" />
-          <blockquote className="font-serif text-base sm:text-lg md:text-xl leading-relaxed text-foreground mb-4 sm:mb-6">
+          <Quote className="w-6 h-6 text-primary-foreground/40 mb-4" />
+          <blockquote className="font-serif text-base sm:text-lg md:text-xl leading-relaxed text-primary-foreground mb-4 sm:mb-6">
             "{testimonial.quote}"
           </blockquote>
-          <footer className="pt-4 border-t border-border/50 text-sm text-muted-foreground">
+          <footer className="pt-4 border-t border-primary-foreground/20 text-sm text-primary-foreground/70">
             <cite className="not-italic">
-              <span className="font-medium text-foreground block">{testimonial.author}</span>
+              <span className="font-medium text-primary-foreground block">{testimonial.author}</span>
               <span>{testimonial.role}</span>
             </cite>
           </footer>

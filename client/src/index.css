@@ -24,8 +24,8 @@
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
   
-  --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Manrope', sans-serif;
+  --font-serif: 'Libre Baskerville', serif;
   
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -51,7 +51,7 @@
   --popover: 0 0% 100%;
   --popover-foreground: 60 5% 8%;
 
-  --primary: 166 40% 17%; /* #1a3d35 Bristlecone Green */
+  --primary: 126 41% 18%; /* #1b401f Bristlecone Green */
   --primary-foreground: 0 0% 100%; /* White text on primary */
 
   --secondary: 40 10% 85%; /* Slightly darker beige for contrast */
@@ -68,7 +68,7 @@
 
   --border: 40 18% 88%; /* #e6e2da Warm Gray */
   --input: 40 18% 88%;
-  --ring: 166 40% 17%;
+  --ring: 126 41% 18%;
 
   --radius: 0.5rem;
 }
