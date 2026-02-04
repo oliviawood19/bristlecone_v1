@@ -5,7 +5,7 @@ import { staggerItem, reducedStaggerItem } from "./Section";
 
 interface SectionHeaderProps {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   description?: React.ReactNode;
   className?: string;
   align?: "left" | "center";

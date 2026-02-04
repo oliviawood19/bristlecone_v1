@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
-import { Menu, X, Mail, Linkedin } from "lucide-react";
+import { Menu, X, Mail, Linkedin, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -43,16 +43,19 @@ export function Navbar() {
           />
         </Link>
 
-        {/* Desktop - Contact button only */}
+        {/* Desktop - Connect button */}
         <div className="hidden md:flex items-center">
           <Button
             asChild
-            size="icon"
             variant="default"
-            className="font-serif rounded-md h-10 w-10 p-0"
+            className="group font-serif rounded-md px-5 py-2 text-base font-medium relative overflow-hidden"
           >
-            <a href="mailto:hello@bristleconecompanies.com" aria-label="Email Us">
-              <Mail className="h-5 w-5" />
+            <a href="mailto:hello@bristleconecompanies.com" className="flex items-center gap-2">
+              <span className="relative">
+                Connect
+                <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-primary-foreground transition-all duration-300 group-hover:w-full" />
+              </span>
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </Button>
         </div>

@@ -160,14 +160,17 @@ export default function Home() {
                 key={i}
                 variants={itemVariants}
                 className={cn(
-                  "card-editorial group border border-primary/15 hover:border-primary transition-colors duration-200",
-                  "hover:bg-primary/[0.03]"
+                  "card-editorial group border border-primary/20 transition-colors duration-200",
+                  "bg-primary text-primary-foreground",
+                  "hover:bg-primary/90 hover:border-primary/40",
+                  "shadow-[0_4px_20px_rgba(0,0,0,0.08)]"
                 )}
               >
-                <h4 className="text-lg md:text-xl font-serif font-bold text-primary mb-2 group-hover:text-primary transition-colors">
+                <h4 className="text-lg md:text-xl font-serif font-bold text-primary-foreground mb-2">
                   {item.title}
                 </h4>
-                <p className="text-muted-foreground leading-relaxed">
+
+                <p className="leading-relaxed text-primary-foreground/80">
                   {item.desc}
                 </p>
               </motion.div>
@@ -223,9 +226,9 @@ export default function Home() {
                 <motion.div
                   key={item.num}
                   variants={itemVariants}
-                  className="border-l-2 border-accent/30 pl-4 sm:pl-6"
+                  className="border-l-2 border-primary/30 pl-4 sm:pl-6"
                 >
-                  <span className="text-lg font-medium text-accent mb-3 block">
+                  <span className="text-lg font-medium text-primary mb-3 block">
                     {item.num}
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-serif font-bold text-primary mb-2">
@@ -241,47 +244,64 @@ export default function Home() {
         </motion.div>
       </Section>
 
-      {/* Section 3: Who We're a Fit For (Qualification) */}
+{/* Section 3: Who We're a Fit For (Qualification) */}
       <Section id="fit" background="default" showDivider>
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start"
-        >
-          {/* Left column: Header + Image */}
-          <div className="pt-8 lg:pt-12">
-            <SectionHeader
-              eyebrow="Who We're a Fit For"
-              title="The Right Partnership"
-            />
+        <div className="pt-10 lg:pt-14">
+          <div className="h-px w-full bg-primary/25 mb-10 lg:mb-12" />
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            // give left more space so the H2 can stay on one line
+            className="grid lg:grid-cols-[1.15fr_1.25fr] gap-10 lg:gap-16 items-start"
+          >
+            {/* Left column */}
+            <div className="max-w-none">
+              {/* Keep your component but override the title behavior */}
+              <SectionHeader
+                eyebrow="Who We're a Fit For"
+                title={
+                  <span className="whitespace-nowrap">
+                    The Right Partnership
+                  </span>
+                }
+              />
+
             <motion.div
-              className="mt-8 flex justify-center lg:justify-start"
+              className="mt-2 flex justify-center lg:justify-start"
               variants={itemVariants}
             >
-              <div className="w-64 md:w-72 lg:w-80 aspect-square overflow-hidden">
+              <div className="w-3/4 max-w-xs">
                 <img
                   src={twoBristleconesImg}
                   alt="Two bristlecone trees illustration"
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-auto"
                 />
               </div>
             </motion.div>
-          </div>
 
-          {/* Right column: Criteria list */}
-          <NumberedCriteria
-            items={[
-              { text: "Bootstrapped founders who've built something enduring" },
-              { text: "Businesses measuring success in decades, not quarters" },
-              { text: "Leaders who value their team's growth" },
-              { text: "Companies with a core DNA worth preserving" },
-              { text: "Operators seeking institutional rigor with family-business care" }
-            ]}
-          />
-        </motion.div>
+            </div>
+
+
+            {/* Right column: sticky + shifted right */}
+            <div className="lg:sticky lg:top-24 self-start lg:pl-6 xl:pl-10">
+              <NumberedCriteria
+                variant="editorial"
+                items={[
+                  { text: "Bootstrapped founders who've built something enduring" },
+                  { text: "Businesses measuring success in decades, not quarters" },
+                  { text: "Leaders who value their team's growth" },
+                  { text: "Companies with a core DNA worth preserving" },
+                  { text: "Operators seeking institutional rigor with family-business care" },
+                ]}
+              />
+            </div>
+          </motion.div>
+        </div>
       </Section>
+
 
       {/* Section 4: What We Offer (How We Create Value) */}
       <Section id="what-we-offer" background="subtle" className="section-chapter" showDivider>
