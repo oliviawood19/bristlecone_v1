@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Quote } from "lucide-react";
 import pineconeLogo from "@assets/pinecone-logo-transparent.png";
 import bristleconeTreeImg from "@assets/drawn_bristlecone.png";
+import twoBristleconesImg from "@assets/twobristlecones.png";
 import rootsIcon from "@assets/roots-icon.png";
 import twotreesIcon from "@assets/twotrees-icon.png";
 import treesIcon from "@assets/trees-icon.png";
@@ -26,19 +27,32 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Navbar />
 
-      {/* Hero Section - PRESERVED EXACTLY */}
+      {/* Hero Section */}
       <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center overflow-hidden bg-background">
         <div className="container-custom pt-24 md:pt-32 pb-20">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            <div className="text-center lg:text-left z-20 order-2 lg:order-1 flex flex-col items-center lg:items-start">
-              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tighter animate-in fade-in slide-in-from-bottom-8 duration-1000 leading-[1.1]">
-                <span className="text-primary">Built to </span>
+          {/* Make grid a positioning context and allow overlap */}
+          <div className="relative grid lg:grid-cols-[1fr_1.35fr] xl:grid-cols-[1fr_1.5fr] gap-8 lg:gap-16 items-center overflow-visible">
+            
+            {/* TEXT COLUMN (allowed to bleed into image column on desktop) */}
+            <div className="relative z-30 order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left
+                            lg:-mr-24 xl:-mr-40 2xl:-mr-56">
+              
+              <h1 className="font-serif font-bold tracking-tighter animate-in fade-in slide-in-from-bottom-8 duration-1000 leading-[1.05] mb-8
+                            text-4xl sm:text-5xl md:text-6xl lg:text-7xl
+                            flex flex-col lg:flex-row lg:flex-nowrap lg:items-baseline lg:gap-x-4">
+                {/* Keep “Built to” together */}
+                <span className="text-primary whitespace-nowrap">
+                  Built&nbsp;to
+                </span>
+
+                {/* Typewriter word stays inline on desktop */}
                 <TypewriterText
                   words={["Endure.", "Grow.", "Steward."]}
-                  className="text-foreground"
+                  className="text-foreground inline-block whitespace-nowrap"
                   waitDuration={5000}
                 />
               </h1>
+
               <div className="max-w-xl mb-10 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 mx-auto lg:mx-0 text-center lg:text-left">
                 <p className="text-lg md:text-2xl font-light leading-relaxed text-muted-foreground">
                   We partner with bootstrapped founders who've built something enduring.
@@ -48,12 +62,9 @@ export default function Home() {
                   Then we build it bigger—together.
                 </p>
               </div>
-              <div className="flex flex-row gap-6 justify-center lg:justify-start items-center lg:items-start animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 w-full">
-                <Button
-                  className="text-base font-medium"
-                  variant="link-animated"
-                  asChild
-                >
+
+              <div className="flex flex-row gap-6 justify-center lg:justify-start items-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 w-full">
+                <Button className="text-base font-medium" variant="link-animated" asChild>
                   <a href="mailto:info@bristleconecompanies.com">
                     Connect{" "}
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -62,17 +73,29 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative z-10 flex justify-center lg:justify-end items-center order-1 lg:order-2 animate-in fade-in zoom-in duration-1000 delay-150 -mt-4 lg:-mt-8">
-              {/* Using favicon as the large pinecone image as requested */}
+            {/* IMAGE COLUMN (behind text, nudged right on desktop) */}
+            <div className="relative z-10 order-1 lg:order-2 flex justify-center lg:justify-end items-center
+                            animate-in fade-in zoom-in duration-1000 delay-150 -mt-4 lg:-mt-8
+                            overflow-visible lg:translate-x-10 xl:translate-x-16">
               <img
-                src={pineconeLogo}
+                src={bristleconeTreeImg}
                 alt="Bristlecone Pinecone"
-                className="w-3/4 sm:w-2/3 md:w-3/4 lg:w-full max-w-[500px] lg:max-w-[700px] h-auto object-contain opacity-90 drop-shadow-xl"
+                className="
+                  h-auto object-contain opacity-90 drop-shadow-xl
+                  w-[88%] max-w-[420px]
+                  sm:w-[78%] sm:max-w-[460px]
+                  md:w-[82%] md:max-w-[560px]
+                  lg:w-full lg:max-w-none lg:scale-110 lg:origin-right
+                  xl:scale-125 2xl:scale-[1.4]
+                "
               />
             </div>
+
           </div>
-        </div>
-      </section>
+  </div>
+</section>
+
+   
 
       {/* ========== POST-HERO SECTIONS START ========== */}
 
@@ -225,36 +248,38 @@ export default function Home() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+          className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start"
         >
-          {/* Left column: Text content */}
-          <div>
+          {/* Left column: Header + Image */}
+          <div className="pt-8 lg:pt-12">
             <SectionHeader
               eyebrow="Who We're a Fit For"
               title="The Right Partnership"
             />
-            <NumberedCriteria
-              items={[
-                { text: "Bootstrapped founders who've built something enduring" },
-                { text: "Businesses measuring success in decades, not quarters" },
-                { text: "Leaders who value their team's growth" },
-                { text: "Companies with a core DNA worth preserving" },
-                { text: "Operators seeking institutional rigor with family-business care" }
-              ]}
-            />
+            <motion.div
+              className="mt-8 flex justify-center lg:justify-start"
+              variants={itemVariants}
+            >
+              <div className="w-64 md:w-72 lg:w-80 aspect-square overflow-hidden">
+                <img
+                  src={twoBristleconesImg}
+                  alt="Two bristlecone trees illustration"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+            </motion.div>
           </div>
 
-          {/* Right column: Tree illustration */}
-          <motion.div
-            className="flex justify-center lg:justify-end"
-            variants={itemVariants}
-          >
-            <img
-              src={bristleconeTreeImg}
-              alt="Bristlecone pine tree illustration"
-              className="w-full max-w-900px lg:max-w-10xl h-auto object-contain"
-            />
-          </motion.div>
+          {/* Right column: Criteria list */}
+          <NumberedCriteria
+            items={[
+              { text: "Bootstrapped founders who've built something enduring" },
+              { text: "Businesses measuring success in decades, not quarters" },
+              { text: "Leaders who value their team's growth" },
+              { text: "Companies with a core DNA worth preserving" },
+              { text: "Operators seeking institutional rigor with family-business care" }
+            ]}
+          />
         </motion.div>
       </Section>
 
