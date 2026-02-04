@@ -343,7 +343,7 @@ export default function Home() {
                 variants={itemVariants}
                 className="card-editorial"
               >
-                <img src={item.icon} alt="" className="w-20 h-20 mb-4 mx-auto object-contain" />
+                <img src={item.icon} alt="" className="w-20 h-20 mb-4 object-contain" />
                 <h4 className="text-xl font-serif font-bold text-foreground mb-3">
                   {item.title}
                 </h4>
