@@ -3,15 +3,13 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Quote } from "lucide-react";
-import pineconeLogo from "@assets/pinecone-logo-transparent.png";
+
 import bristleconeTreeImg from "@assets/drawn_bristlecone.png";
 import twoBristleconesImg from "@assets/twobristlecones.png";
 import rootsIcon from "@assets/roots-icon.png";
 import twotreesIcon from "@assets/twotrees-icon.png";
 import treesIcon from "@assets/trees-icon.png";
 import fingerprintIcon from "@assets/fingerprint-icon.png";
-import { TypewriterText } from "@/components/ui/typewriter-text";
 import { Section, staggerContainer, staggerItem, reducedStaggerItem } from "@/components/sections/Section";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { NumberedCriteria } from "@/components/sections/NumberedCriteria";
@@ -28,74 +26,41 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center overflow-hidden bg-background">
+      <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center bg-background">
         <div className="container-custom pt-24 md:pt-32 pb-20">
-          {/* Make grid a positioning context and allow overlap */}
-          <div className="relative grid lg:grid-cols-[1fr_1.35fr] xl:grid-cols-[1fr_1.5fr] gap-8 lg:gap-16 items-center overflow-visible">
-            
-            {/* TEXT COLUMN (allowed to bleed into image column on desktop) */}
-            <div className="relative z-30 order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left
-                            lg:-mr-24 xl:-mr-40 2xl:-mr-56">
-              
-              <h1 className="font-serif font-bold tracking-tighter animate-in fade-in slide-in-from-bottom-8 duration-1000 leading-[1.05] mb-8
-                            text-4xl sm:text-5xl md:text-6xl lg:text-7xl
-                            flex flex-col lg:flex-row lg:flex-nowrap lg:items-baseline lg:gap-x-4">
-                {/* Keep “Built to” together */}
-                <span className="text-primary whitespace-nowrap">
-                  Built&nbsp;to
-                </span>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-                {/* Typewriter word stays inline on desktop */}
-                <TypewriterText
-                  words={["Endure.", "Grow.", "Steward."]}
-                  className="text-foreground inline-block whitespace-nowrap"
-                  waitDuration={5000}
-                />
+            {/* Text Column */}
+            <div className="order-2 lg:order-1 text-center lg:text-left">
+              <h1 className="font-serif font-bold tracking-tight leading-[1.1] mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary">
+                Enduring ownership for enduring businesses
               </h1>
 
-              <div className="max-w-xl mb-10 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 mx-auto lg:mx-0 text-center lg:text-left">
-                <p className="text-lg md:text-2xl font-light leading-relaxed text-muted-foreground">
-                  We partner with bootstrapped founders who've built something enduring.
-                </p>
-                <div className="h-px w-12 bg-border my-6 mx-auto lg:mx-0" />
-                <p className="text-lg md:text-xl font-serif text-muted-foreground/80">
-                  Then we build it bigger—together.
-                </p>
-              </div>
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed text-muted-foreground max-w-xl mb-10 mx-auto lg:mx-0">
+                Bristlecone acquires and operates essential businesses to steward what matters most—people, customers, and legacy—and unlock their full potential over decades.
+              </p>
 
-              <div className="flex flex-row gap-6 justify-center lg:justify-start items-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 w-full">
-                <Button className="text-base font-medium" variant="link-animated" asChild>
+              <div className="flex justify-center lg:justify-start">
+                <Button className="text-base font-medium" asChild>
                   <a href="mailto:info@bristleconecompanies.com">
-                    Connect{" "}
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    Get in Touch
                   </a>
                 </Button>
               </div>
             </div>
 
-            {/* IMAGE COLUMN (behind text, nudged right on desktop) */}
-            <div className="relative z-10 order-1 lg:order-2 flex justify-center lg:justify-end items-center
-                            animate-in fade-in zoom-in duration-1000 delay-150 -mt-4 lg:-mt-8
-                            overflow-visible lg:translate-x-10 xl:translate-x-16">
+            {/* Image Column */}
+            <div className="order-1 lg:order-2 flex justify-center lg:justify-end items-center">
               <img
                 src={bristleconeTreeImg}
                 alt="Bristlecone Pinecone"
-                className="
-                  h-auto object-contain opacity-90 drop-shadow-xl
-                  w-[88%] max-w-[420px]
-                  sm:w-[78%] sm:max-w-[460px]
-                  md:w-[82%] md:max-w-[560px]
-                  lg:w-full lg:max-w-none lg:scale-110 lg:origin-right
-                  xl:scale-125 2xl:scale-[1.4]
-                "
+                className="h-auto object-contain opacity-90 w-3/4 max-w-[400px] sm:max-w-[460px] md:max-w-[520px] lg:max-w-none lg:w-full"
               />
             </div>
 
           </div>
-  </div>
-</section>
-
-   
+        </div>
+      </section>
 
       {/* ========== POST-HERO SECTIONS START ========== */}
 
@@ -244,7 +209,7 @@ export default function Home() {
         </motion.div>
       </Section>
 
-{/* Section 3: Who We're a Fit For (Qualification) */}
+      {/* Section 3: Who We're a Fit For (Qualification) */}
       <Section id="fit" background="default" showDivider>
         <div className="pt-10 lg:pt-14">
           <div className="h-px w-full bg-primary/25 mb-10 lg:mb-12" />
@@ -254,12 +219,10 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            // give left more space so the H2 can stay on one line
             className="grid lg:grid-cols-[1.15fr_1.25fr] gap-10 lg:gap-16 items-start"
           >
             {/* Left column */}
             <div className="max-w-none">
-              {/* Keep your component but override the title behavior */}
               <SectionHeader
                 eyebrow="Who We're a Fit For"
                 title={
@@ -269,21 +232,19 @@ export default function Home() {
                 }
               />
 
-            <motion.div
-              className="mt-2 flex justify-center lg:justify-start"
-              variants={itemVariants}
-            >
-              <div className="w-3/4 max-w-xs">
-                <img
-                  src={twoBristleconesImg}
-                  alt="Two bristlecone trees illustration"
-                  className="w-full h-auto"
-                />
-              </div>
-            </motion.div>
-
+              <motion.div
+                className="mt-2 flex justify-center lg:justify-start"
+                variants={itemVariants}
+              >
+                <div className="w-3/4 max-w-xs">
+                  <img
+                    src={twoBristleconesImg}
+                    alt="Two bristlecone trees illustration"
+                    className="w-full h-auto"
+                  />
+                </div>
+              </motion.div>
             </div>
-
 
             {/* Right column: sticky + shifted right */}
             <div className="lg:sticky lg:top-24 self-start lg:pl-6 xl:pl-10">
@@ -301,7 +262,6 @@ export default function Home() {
           </motion.div>
         </div>
       </Section>
-
 
       {/* Section 4: What We Offer (How We Create Value) */}
       <Section id="what-we-offer" background="subtle" className="section-chapter" showDivider>
@@ -341,9 +301,9 @@ export default function Home() {
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="card-editorial"
+                className="card-editorial text-center"
               >
-                <img src={item.icon} alt="" className="w-20 h-20 mb-4 object-contain" />
+                <img src={item.icon} alt="" className="w-20 h-20 mb-4 mx-auto object-contain" />
                 <h4 className="text-xl font-serif font-bold text-foreground mb-3">
                   {item.title}
                 </h4>
