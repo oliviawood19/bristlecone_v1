@@ -10,6 +10,7 @@ import rootsIcon from "@assets/roots-icon.png";
 import twotreesIcon from "@assets/twotrees-icon.png";
 import treesIcon from "@assets/trees-icon.png";
 import fingerprintIcon from "@assets/fingerprint-icon.png";
+import woodGrainPattern from "@assets/generated_images/abstract_bristlecone_pine_wood_grain_line_pattern.png";
 import {
   Section,
   staggerContainer,
@@ -122,9 +123,6 @@ export default function Home() {
               <br />
               businesses
             </h1>
-
-            {/* Thin rule divider */}
-            <div className="hero-fade-3 w-10 sm:w-12 h-[1.5px] bg-primary opacity-50 mb-6 sm:mb-8" />
 
             {/* Body copy */}
             <p
@@ -247,11 +245,11 @@ export default function Home() {
               },
               {
                 title: "Operator DNA",
-                desc: "We care about the details, the discipline, and the daily execution. Small actions matter when done consistently over time.",
+                desc: "Small actions matter when done consistently over time. We care about the details, discipline, and daily execution that drive real outcomes.",
               },
               {
                 title: "Independence & Autonomy",
-                desc: "The best decisions are made by people closest to customers. Each business maintains its independence, and we empower leaders with real autonomy.",
+                desc: "The best decisions are made by people closest to customers. We maintain each business' independence and empower our leaders with real autonomy.",
               },
             ].map((item, i) => (
               <motion.div
@@ -261,19 +259,39 @@ export default function Home() {
                   "card-editorial group border border-primary/20",
                   "bg-primary text-primary-foreground",
                   "shadow-[0_4px_20px_rgba(0,0,0,0.08)]",
-                  // Enhanced hover state
                   "transition-all duration-300 ease-out",
                   "hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]",
                   "hover:-translate-y-1",
                   "hover:border-primary/40",
+
+                  // ✅ add these:
+                  "relative overflow-hidden",
                 )}
               >
-                <h4 className="text-base sm:text-lg md:text-xl font-serif font-bold text-primary-foreground mb-2">
-                  {item.title}
-                </h4>
-                <p className="text-sm sm:text-base leading-relaxed text-primary-foreground/80">
-                  {item.desc}
-                </p>
+                {/* ✅ Background layers (same approach as CTAPanel) */}
+                <div className="absolute inset-0 pointer-events-none">
+                  <div
+                    className="absolute inset-0 opacity-[0.12]"
+                    style={{
+                      backgroundImage: `url(${woodGrainPattern})`,
+                      backgroundRepeat: "repeat",
+                      backgroundSize: "520px",
+                      backgroundPosition: "center",
+                    }}
+                  />
+                  {/* optional: subtle wash for legibility (matches your primary CTAPanel vibe) */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-transparent" />
+                </div>
+
+                {/* ✅ Content above background */}
+                <div className="relative z-10">
+                  <h4 className="text-base sm:text-lg md:text-xl font-serif font-bold text-primary-foreground mb-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-sm sm:text-base leading-relaxed text-primary-foreground/80">
+                    {item.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
