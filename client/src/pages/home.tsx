@@ -3,19 +3,24 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-
+import { ArrowRight } from "lucide-react";
 import bristleconeTreeImg from "@assets/drawn_bristlecone.png";
 import twoBristleconesImg from "@assets/twobristlecones.png";
 import rootsIcon from "@assets/roots-icon.png";
 import twotreesIcon from "@assets/twotrees-icon.png";
 import treesIcon from "@assets/trees-icon.png";
 import fingerprintIcon from "@assets/fingerprint-icon.png";
-import { Section, staggerContainer, staggerItem, reducedStaggerItem } from "@/components/sections/Section";
+import {
+  Section,
+  staggerContainer,
+  staggerItem,
+  reducedStaggerItem,
+} from "@/components/sections/Section";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { NumberedCriteria } from "@/components/sections/NumberedCriteria";
 import { TestimonialGrid } from "@/components/sections/TestimonialQuote";
 import { DualCTA } from "@/components/sections/DualCTA";
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();
@@ -26,38 +31,142 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center bg-background">
-        <div className="container-custom pt-24 md:pt-32 pb-20">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <section className="relative bg-background overflow-hidden min-h-screen flex flex-col">
+        {/* Stagger-in animation styles */}
+        <style>{`
+          @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; transform: scaleY(1); }
+            50%       { opacity: 1;   transform: scaleY(0.6); }
+          }
+          .hero-fade-1 { animation: fadeUp 0.7s ease both; animation-delay: 0.10s; }
+          .hero-fade-2 { animation: fadeUp 0.7s ease both; animation-delay: 0.22s; }
+          .hero-fade-3 { animation: fadeUp 0.7s ease both; animation-delay: 0.34s; }
+          .hero-fade-4 { animation: fadeUp 0.7s ease both; animation-delay: 0.46s; }
+          .hero-fade-5 { animation: fadeUp 0.7s ease both; animation-delay: 0.58s; }
+          .hero-tree   { animation: fadeUp 1.1s ease both; animation-delay: 0.20s; }
 
-            {/* Text Column */}
-            <div className="order-2 lg:order-1 text-center lg:text-left">
-              <h1 className="font-serif font-bold tracking-tight leading-[1.1] mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary">
-                Enduring ownership for enduring businesses
-              </h1>
+          .cta-underline {
+            position: relative;
+            padding-bottom: 6px;
+          }
+          .cta-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 1px;
+            background: hsl(var(--foreground));
+            transform-origin: right;
+            transform: scaleX(1);
+            transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+          }
+          .cta-underline::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 1px;
+            background: hsl(var(--primary));
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 0.35s cubic-bezier(0.4,0,0.2,1) 0.05s;
+          }
+          .cta-underline:hover::after  { transform-origin: left;  transform: scaleX(0); }
+          .cta-underline:hover::before { transform-origin: right; transform: scaleX(1); }
 
-              <p className="text-base sm:text-lg md:text-xl leading-relaxed text-muted-foreground max-w-xl mb-10 mx-auto lg:mx-0">
-                Bristlecone acquires and operates essential businesses to steward what matters most—people, customers, and legacy—and unlock their full potential over decades.
-              </p>
+          .scroll-line {
+            width: 1px; height: 40px;
+            background: hsl(var(--muted-foreground));
+            animation: scrollPulse 2s ease-in-out infinite;
+          }
+        `}</style>
 
-              <div className="flex justify-center lg:justify-start">
-                <Button className="text-base font-medium" asChild>
-                  <a href="mailto:info@bristleconecompanies.com">
-                    Get in Touch
-                  </a>
-                </Button>
-              </div>
+        {/* Split-screen body */}
+        <div className="flex flex-col lg:flex-row flex-1 min-h-screen">
+          {/* ── LEFT PANEL ── */}
+          <div
+            className="relative z-10 flex flex-col justify-center
+                          flex-none lg:w-[52%]
+                          px-8 sm:px-12 lg:px-20
+                          pt-36 pb-20 lg:py-0"
+          >
+            {/* Headline */}
+            <h1
+              className="hero-fade-2 font-serif font-bold text-primary leading-[1.0] tracking-[-0.01em]
+                           text-[42px] sm:text-5xl md:text-6xl lg:text-[64px] xl:text-[72px]
+                           mb-8"
+            >
+              Enduring ownership
+              <br />
+              for enduring
+              <br className="hidden sm:block" />
+              businesses
+            </h1>
+
+            {/* Thin rule divider */}
+            <div className="hero-fade-3 w-12 h-[1.5px] bg-primary opacity-50 mb-8" />
+
+            {/* Body copy */}
+            <p
+              className="hero-fade-4 font-sans font-light text-muted-foreground
+                          text-base sm:text-lg leading-relaxed
+                          max-w-[44ch] mb-12"
+            >
+              Bristlecone acquires and operates essential businesses to steward
+              what matters most—people, customers, and legacy—and unlock their
+              full potential over decades.
+            </p>
+
+            {/* CTA */}
+            <div className="hero-fade-5">
+              <a
+                href="mailto:info@bristleconecompanies.com"
+                className="cta-underline group inline-flex items-center gap-2
+              text-sm tracking-[0.08em] font-sans text-foreground"
+              >
+                Get in Touch
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+              </a>
             </div>
 
-            {/* Image Column */}
-            <div className="order-1 lg:order-2 flex justify-center lg:justify-end items-center">
+            {/* Scroll indicator — hidden on mobile */}
+            <div className="hidden lg:flex absolute bottom-10 left-20 items-center gap-3">
+              <div className="scroll-line" />
+              <span className="text-[10px] tracking-[0.18em] uppercase text-muted-foreground opacity-60">
+                Scroll
+              </span>
+            </div>
+          </div>
+
+          {/* ── RIGHT PANEL ── */}
+          <div
+            className="relative flex-none lg:w-[48%]
+                          h-[480px] lg:h-auto overflow-hidden"
+          >
+            {/* Left-edge fade so panels blend softly */}
+            <div
+              className="absolute inset-y-0 left-0 w-24 z-10
+                            bg-gradient-to-r from-background to-transparent pointer-events-none"
+            />
+
+            {/* Top-edge fade on mobile */}
+            <div
+              className="absolute inset-x-0 top-0 h-20 z-10 lg:hidden
+                            bg-gradient-to-b from-background to-transparent pointer-events-none"
+            />
+
+            <div
+              className="hero-tree absolute inset-0 -left-10 -bottom-5 -right-5
+                            flex items-center justify-center"
+            >
               <img
                 src={bristleconeTreeImg}
-                alt="Bristlecone Pinecone"
-                className="h-auto object-contain opacity-90 w-3/4 max-w-[400px] sm:max-w-[460px] md:max-w-[520px] lg:max-w-none lg:w-full"
+                alt="Bristlecone Pine"
+                className="w-full h-full object-cover object-center opacity-90"
               />
             </div>
-
           </div>
         </div>
       </section>
@@ -68,7 +177,7 @@ export default function Home() {
       <Section id="what-we-do" background="default" disableAnimation>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left: Header + Copy - sticky with offset for navbar */}
-          <motion.div 
+          <motion.div
             className="lg:sticky lg:top-24"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -76,23 +185,31 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <SectionHeader
-              eyebrow="What We Do"
-              title="Honoring the Craft of Building"
+              eyebrow="Why Bristlecone?"
+              title="Business builders, permanent owners"
               description={
-                <p>
-                  We're operators who roll up our sleeves,{" "}
-                  <span className="text-primary font-medium">
-                    preserve what makes your business special
-                  </span>
-                  , and help it reach its full potential.
-                </p>
+                <div className="space-y-6">
+                  <p>
+                    Bristlecone Companies is a long-term holding company for
+                    mission-critical businesses that have earned deep customer
+                    trust and leading positions in specialized markets.
+                  </p>
+
+                  <p>
+                    We are business builders who happen to invest. We believe
+                    enduring companies are built brick-by-brick through
+                    discipline, care, and relentless focus.
+                  </p>
+
+                  <p>
+                    Backed by our own capital and a time horizon measured in
+                    decades, we can invest in what takes time: building great
+                    teams, deepening customer relationships, and amplifying your
+                    legacy.
+                  </p>
+                </div>
               }
             />
-            <div className="border-l-2 border-accent/30 pl-6 py-2">
-              <p className="font-serif text-xl md:text-2xl font-medium leading-tight text-primary">
-                We think in decades, not quarters.
-              </p>
-            </div>
           </motion.div>
 
           {/* Right: At-a-glance blocks */}
@@ -105,21 +222,21 @@ export default function Home() {
           >
             {[
               {
-                title: "Permanent Capital",
-                desc: "We buy to hold forever. No flips, no exits, no short-term horizons."
+                title: "Forever Mindset",
+                desc: "We acquire to own indefinitely and have no intention to sell. This changes everything: how we invest, how we operate, and how we treat people.",
               },
               {
-                title: "Preserve What Works",
-                desc: "We protect the core DNA of your business and honor the history that got you here."
+                title: "Team & Culture First",
+                desc: "Everything starts with people. We invest in teams, protect what makes each culture special, and create environments where talented people thrive.",
               },
               {
-                title: "Invest in People",
-                desc: "We introduce systems, training, and growth opportunities for your team."
+                title: "Operator DNA",
+                desc: "We care about the details, the discipline, and the daily execution. Small actions matter when done consistently over time.",
               },
               {
-                title: "Operate with Discipline",
-                desc: "Institutional rigor with the care of a family business."
-              }
+                title: "Independence & Autonomy",
+                desc: "The best decisions are made by people closest to customers. Each business maintains its independence, and we empower leaders with real autonomy.",
+              },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -128,7 +245,7 @@ export default function Home() {
                   "card-editorial group border border-primary/20 transition-colors duration-200",
                   "bg-primary text-primary-foreground",
                   "hover:bg-primary/90 hover:border-primary/40",
-                  "shadow-[0_4px_20px_rgba(0,0,0,0.08)]"
+                  "shadow-[0_4px_20px_rgba(0,0,0,0.08)]",
                 )}
               >
                 <h4 className="text-lg md:text-xl font-serif font-bold text-primary-foreground mb-2">
@@ -145,7 +262,12 @@ export default function Home() {
       </Section>
 
       {/* Section 2: Why Bristlecone (Value Proposition) */}
-      <Section id="why-bristlecone" background="subtle" className="section-chapter" showDivider>
+      <Section
+        id="why-bristlecone"
+        background="subtle"
+        className="section-chapter"
+        showDivider
+      >
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -157,10 +279,10 @@ export default function Home() {
             title="Built by Operators, for Operators."
             description={
               <p className="prose-narrow">
-                Bristlecone was founded by people who have been in your
-                shoes. We know what it takes to build, because we've built.
-                We know what it means to sell, because we've been stewards
-                of that trust.
+                Bristlecone was founded by people who have been in your shoes.
+                We know what it takes to build, because we've built. We know
+                what it means to sell, because we've been stewards of that
+                trust.
               </p>
             }
           />
@@ -175,18 +297,18 @@ export default function Home() {
                 {
                   num: "01",
                   title: "Your team stays",
-                  desc: "We don't slash costs to boost short-term margins."
+                  desc: "We don't slash costs to boost short-term margins.",
                 },
                 {
                   num: "02",
                   title: "Your brand remains",
-                  desc: "We honor the legacy you built."
+                  desc: "We honor the legacy you built.",
                 },
                 {
                   num: "03",
                   title: "We hold forever",
-                  desc: "No flipping, no exit strategy."
-                }
+                  desc: "No flipping, no exit strategy.",
+                },
               ].map((item) => (
                 <motion.div
                   key={item.num}
@@ -199,9 +321,7 @@ export default function Home() {
                   <h3 className="text-2xl sm:text-3xl font-serif font-bold text-primary mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-muted-primary">
-                    {item.desc}
-                  </p>
+                  <p className="text-muted-primary">{item.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -251,11 +371,17 @@ export default function Home() {
               <NumberedCriteria
                 variant="editorial"
                 items={[
-                  { text: "Bootstrapped founders who've built something enduring" },
-                  { text: "Businesses measuring success in decades, not quarters" },
+                  {
+                    text: "Bootstrapped founders who've built something enduring",
+                  },
+                  {
+                    text: "Businesses measuring success in decades, not quarters",
+                  },
                   { text: "Leaders who value their team's growth" },
                   { text: "Companies with a core DNA worth preserving" },
-                  { text: "Operators seeking institutional rigor with family-business care" },
+                  {
+                    text: "Operators seeking institutional rigor with family-business care",
+                  },
                 ]}
               />
             </div>
@@ -264,46 +390,52 @@ export default function Home() {
       </Section>
 
       {/* Section 4: What We Offer (How We Create Value) */}
-      <Section id="what-we-offer" background="subtle" className="section-chapter" showDivider>
+      <Section
+        id="what-we-offer"
+        background="subtle"
+        className="section-chapter"
+        showDivider
+      >
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <SectionHeader
-            eyebrow="How We Create Value"
-            title="What We Offer"
-          />
+          <SectionHeader eyebrow="How We Create Value" title="What We Offer" />
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {[
               {
                 icon: rootsIcon,
                 title: "Permanent Capital",
-                desc: "We buy to hold forever. No flips, no exits, no short-term horizons. Your legacy is safe with us because we measure success in decades, not quarters."
+                desc: "We buy to hold forever. No flips, no exits, no short-term horizons. Your legacy is safe with us because we measure success in decades, not quarters.",
               },
               {
                 icon: twotreesIcon,
                 title: "Preserve What Works",
-                desc: "You didn't build something great by accident. We protect the core DNA of your business and honor the history that got you here."
+                desc: "You didn't build something great by accident. We protect the core DNA of your business and honor the history that got you here.",
               },
               {
                 icon: treesIcon,
                 title: "Invest in People",
-                desc: "Businesses don't compound—people do. We introduce systems, training, and growth opportunities for your team."
+                desc: "Businesses don't compound—people do. We introduce systems, training, and growth opportunities for your team.",
               },
               {
                 icon: fingerprintIcon,
                 title: "Operate with Discipline",
-                desc: "Institutional rigor with the care of a family business. We bring excellence in the margins without losing the soul."
-              }
+                desc: "Institutional rigor with the care of a family business. We bring excellence in the margins without losing the soul.",
+              },
             ].map((item, i) => (
               <motion.div
                 key={i}
                 variants={itemVariants}
                 className="card-editorial text-center"
               >
-                <img src={item.icon} alt="" className="w-20 h-20 mb-4 mx-auto object-contain" />
+                <img
+                  src={item.icon}
+                  alt=""
+                  className="w-20 h-20 mb-4 mx-auto object-contain"
+                />
                 <h4 className="text-xl font-serif font-bold text-foreground mb-3">
                   {item.title}
                 </h4>
@@ -328,26 +460,32 @@ export default function Home() {
             eyebrow="Testimonials"
             title="Founders Trust The Process."
             description={
-              <p>We've spent years building a reputation for doing exactly what we say we'll do.</p>
+              <p>
+                We've spent years building a reputation for doing exactly what
+                we say we'll do.
+              </p>
             }
           />
           <TestimonialGrid
             testimonials={[
               {
-                quote: "They understood what we'd built. More importantly, they understood why it mattered. Selling to Bristlecone wasn't an exit; it was a graduation.",
+                quote:
+                  "They understood what we'd built. More importantly, they understood why it mattered. Selling to Bristlecone wasn't an exit; it was a graduation.",
                 author: "Jean Doe",
-                role: "Founder, Systrends"
+                role: "Founder, Systrends",
               },
               {
-                quote: "I talked to twenty PE firms. Bristlecone was the only one that didn't ask me how much cost I could cut in the first 100 days.",
+                quote:
+                  "I talked to twenty PE firms. Bristlecone was the only one that didn't ask me how much cost I could cut in the first 100 days.",
                 author: "Michael Chen",
-                role: "CEO, LegalTech Solutions"
+                role: "CEO, LegalTech Solutions",
               },
               {
-                quote: "They kept their word on every single deal point. The transition was seamless, and my team is happier now than they were before.",
+                quote:
+                  "They kept their word on every single deal point. The transition was seamless, and my team is happier now than they were before.",
                 author: "Sarah Jenkins",
-                role: "Founder, ConstructFlow"
-              }
+                role: "Founder, ConstructFlow",
+              },
             ]}
           />
         </motion.div>
