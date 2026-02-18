@@ -148,14 +148,6 @@ export default function Home() {
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
               </a>
             </div>
-
-            {/* Scroll indicator — hidden on mobile */}
-            <div className="hidden lg:flex absolute bottom-10 left-20 items-center gap-3">
-              <div className="scroll-line" />
-              <span className="text-[10px] tracking-[0.18em] uppercase text-muted-foreground opacity-60">
-                Scroll
-              </span>
-            </div>
           </div>
 
           {/* ── RIGHT PANEL (Desktop only) ── */}
@@ -186,11 +178,19 @@ export default function Home() {
       {/* ========== POST-HERO SECTIONS START ========== */}
 
       {/* Section 1: Welcome (What We Do) */}
-      <Section id="what-we-do" background="default" disableAnimation className="relative overflow-hidden">
+      <Section
+        id="what-we-do"
+        background="default"
+        disableAnimation
+        className="relative overflow-hidden"
+      >
         {/* Subtle texture overlay */}
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.015] pointer-events-none"
-          style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%" height="100%" filter="url(%23noise)"/%3E%3C/svg%3E")' }}
+          style={{
+            backgroundImage:
+              'url("data:image/svg+xml,%3Csvg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%" height="100%" filter="url(%23noise)"/%3E%3C/svg%3E")',
+          }}
         />
 
         <div className="relative grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
