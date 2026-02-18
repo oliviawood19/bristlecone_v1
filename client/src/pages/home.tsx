@@ -31,6 +31,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
+      {/* Hero Section */}
       <section className="relative bg-background overflow-hidden min-h-screen flex flex-col">
         {/* Stagger-in animation styles */}
         <style>{`
@@ -84,35 +85,52 @@ export default function Home() {
         `}</style>
 
         {/* Split-screen body */}
-        <div className="flex flex-col lg:flex-row flex-1 min-h-screen">
+        <div className="relative flex flex-col lg:flex-row flex-1 min-h-screen">
+          {/* ── MOBILE BACKGROUND IMAGE ── */}
+          <div className="absolute inset-0 lg:hidden pointer-events-none">
+            <div className="absolute inset-0 hero-tree">
+              <img
+                src={bristleconeTreeImg}
+                alt=""
+                aria-hidden="true"
+                className="w-full h-full object-cover object-bottom opacity-90"
+              />
+            </div>
+            {/* Gradient overlay - stronger at top for text, fades to show image at bottom */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 via-60% to-transparent" />
+          </div>
+
           {/* ── LEFT PANEL ── */}
           <div
             className="relative z-10 flex flex-col justify-center
-                          flex-none lg:w-[52%]
-                          px-8 sm:px-12 lg:px-20
-                          pt-36 pb-20 lg:py-0"
+                       flex-none lg:w-[52%]
+                       px-6 sm:px-12 lg:px-20
+                       pt-28 pb-16 sm:pt-36 sm:pb-20 lg:py-0"
           >
             {/* Headline */}
             <h1
-              className="hero-fade-2 font-serif font-bold text-primary leading-[1.0] tracking-[-0.01em]
-                           text-[42px] sm:text-5xl md:text-6xl lg:text-[64px] xl:text-[72px]
-                           mb-8"
+              className="hero-fade-2 font-serif font-bold text-primary leading-[1.08] tracking-[-0.01em]
+                         text-[32px] sm:text-5xl md:text-6xl lg:text-[64px] xl:text-[72px]
+                         mb-6 sm:mb-8"
             >
-              Enduring ownership
+              Enduring
+              <br className="sm:hidden" />
+              <span className="hidden sm:inline"> </span>
+              ownership
               <br />
               for enduring
-              <br className="hidden sm:block" />
+              <br />
               businesses
             </h1>
 
             {/* Thin rule divider */}
-            <div className="hero-fade-3 w-12 h-[1.5px] bg-primary opacity-50 mb-8" />
+            <div className="hero-fade-3 w-10 sm:w-12 h-[1.5px] bg-primary opacity-50 mb-6 sm:mb-8" />
 
             {/* Body copy */}
             <p
               className="hero-fade-4 font-sans font-light text-muted-foreground
-                          text-base sm:text-lg leading-relaxed
-                          max-w-[44ch] mb-12"
+                         text-[15px] sm:text-lg leading-relaxed
+                         max-w-[44ch] mb-10 sm:mb-12"
             >
               Bristlecone acquires and operates essential businesses to steward
               what matters most—people, customers, and legacy—and unlock their
@@ -124,7 +142,7 @@ export default function Home() {
               <a
                 href="mailto:info@bristleconecompanies.com"
                 className="cta-underline group inline-flex items-center gap-2
-              text-sm tracking-[0.08em] font-sans text-foreground"
+                           text-sm tracking-[0.08em] font-sans text-foreground"
               >
                 Get in Touch
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -140,26 +158,20 @@ export default function Home() {
             </div>
           </div>
 
-          {/* ── RIGHT PANEL ── */}
+          {/* ── RIGHT PANEL (Desktop only) ── */}
           <div
             className="relative flex-none lg:w-[48%]
-                          h-[480px] lg:h-auto overflow-hidden"
+                       hidden lg:block lg:h-auto overflow-hidden"
           >
             {/* Left-edge fade so panels blend softly */}
             <div
               className="absolute inset-y-0 left-0 w-24 z-10
-                            bg-gradient-to-r from-background to-transparent pointer-events-none"
-            />
-
-            {/* Top-edge fade on mobile */}
-            <div
-              className="absolute inset-x-0 top-0 h-20 z-10 lg:hidden
-                            bg-gradient-to-b from-background to-transparent pointer-events-none"
+                         bg-gradient-to-r from-background to-transparent pointer-events-none"
             />
 
             <div
               className="hero-tree absolute inset-0 -left-10 -bottom-5 -right-5
-                            flex items-center justify-center"
+                         flex items-center justify-center"
             >
               <img
                 src={bristleconeTreeImg}
@@ -174,11 +186,17 @@ export default function Home() {
       {/* ========== POST-HERO SECTIONS START ========== */}
 
       {/* Section 1: Welcome (What We Do) */}
-      <Section id="what-we-do" background="default" disableAnimation>
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+      <Section id="what-we-do" background="default" disableAnimation className="relative overflow-hidden">
+        {/* Subtle texture overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.015] pointer-events-none"
+          style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%" height="100%" filter="url(%23noise)"/%3E%3C/svg%3E")' }}
+        />
+
+        <div className="relative grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left: Header + Copy - sticky with offset for navbar */}
           <motion.div
-            className="lg:sticky lg:top-24"
+            className="lg:sticky lg:top-28 mb-8 lg:mb-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -194,13 +212,11 @@ export default function Home() {
                     mission-critical businesses that have earned deep customer
                     trust and leading positions in specialized markets.
                   </p>
-
                   <p>
                     We are business builders who happen to invest. We believe
                     enduring companies are built brick-by-brick through
                     discipline, care, and relentless focus.
                   </p>
-
                   <p>
                     Backed by our own capital and a time horizon measured in
                     decades, we can invest in what takes time: building great
@@ -218,7 +234,7 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="grid gap-6"
+            className="grid gap-5 sm:gap-6"
           >
             {[
               {
@@ -242,17 +258,20 @@ export default function Home() {
                 key={i}
                 variants={itemVariants}
                 className={cn(
-                  "card-editorial group border border-primary/20 transition-colors duration-200",
+                  "card-editorial group border border-primary/20",
                   "bg-primary text-primary-foreground",
-                  "hover:bg-primary/90 hover:border-primary/40",
                   "shadow-[0_4px_20px_rgba(0,0,0,0.08)]",
+                  // Enhanced hover state
+                  "transition-all duration-300 ease-out",
+                  "hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]",
+                  "hover:-translate-y-1",
+                  "hover:border-primary/40",
                 )}
               >
-                <h4 className="text-lg md:text-xl font-serif font-bold text-primary-foreground mb-2">
+                <h4 className="text-base sm:text-lg md:text-xl font-serif font-bold text-primary-foreground mb-2">
                   {item.title}
                 </h4>
-
-                <p className="leading-relaxed text-primary-foreground/80">
+                <p className="text-sm sm:text-base leading-relaxed text-primary-foreground/80">
                   {item.desc}
                 </p>
               </motion.div>
