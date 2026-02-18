@@ -45,19 +45,13 @@ export function Navbar() {
 
         {/* Desktop - Connect button */}
         <div className="hidden md:flex items-center">
-          <Button
-            asChild
-            variant="default"
-            className="group font-serif rounded-md px-5 py-2 text-base font-medium relative overflow-hidden"
+          <a
+            href="mailto:hello@bristleconecompanies.com"
+            className="group inline-flex items-center gap-2 rounded-none border border-primary bg-transparent px-5 py-2 text-base font-medium font-serif text-primary transition-colors duration-200 hover:bg-primary hover:text-primary-foreground"
           >
-            <a href="mailto:hello@bristleconecompanies.com" className="flex items-center gap-2">
-              <span className="relative">
-                Connect
-                <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-primary-foreground transition-all duration-300 group-hover:w-full" />
-              </span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
-          </Button>
+            Get in Touch
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
         </div>
 
         {/* Mobile menu */}
