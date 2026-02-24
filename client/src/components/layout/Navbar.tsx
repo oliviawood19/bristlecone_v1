@@ -68,7 +68,16 @@ export function Navbar() {
 
         {/* ── Desktop CTA ───────────────────────────────────────────────── */}
         {/* Hidden on mobile; uses Button component with outline variant */}
-        <div className="hidden md:flex items-center">
+        <div className="hidden md:flex items-center gap-6">
+          <a
+            href="https://jobs.ashbyhq.com/bristleconecompanies"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-serif text-base text-primary hover:text-primary/70 transition-colors"
+            data-testid="link-careers"
+          >
+            Careers
+          </a>
           <Button
             asChild
             variant="outline"
@@ -113,6 +122,15 @@ export function Navbar() {
               <p className="text-lg text-muted-foreground max-w-xs animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
                 We'd love to hear from you.
               </p>
+              <a
+                href="https://jobs.ashbyhq.com/bristleconecompanies"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-serif text-lg text-primary hover:text-primary/70 transition-colors animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200"
+                data-testid="link-careers-mobile"
+              >
+                Careers
+              </a>
             </div>
 
             {/* Social / contact links pinned to bottom of overlay */}
