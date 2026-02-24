@@ -54,13 +54,13 @@ export function HeroSection() {
           "
         >
           <h1
-            className="hero-fade-2 font-serif font-bold text-primary tracking-[-0.01em] sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[50px] mb-6 sm:mb-8 lg:max-w-[130%] text-[48px]"
+            className="hero-fade-2 font-serif font-bold text-primary tracking-[-0.01em] leading-snug sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[50px] mb-6 sm:mb-8 lg:max-w-[130%] text-[48px]"
           >
             Enduring ownership for enduring businesses
           </h1>
 
           <p
-            className="hero-fade-4 font-sans font-light text-muted-foreground sm:text-xl md:text-[22px] max-w-[48ch] mb-10 sm:mb-12 text-[18px]"
+            className="hero-fade-4 font-sans font-light text-muted-foreground leading-snug sm:text-xl md:text-[22px] max-w-[48ch] mb-10 sm:mb-12 text-[18px]"
           >
             Bristlecone acquires and operates essential businesses to steward
             what matters most—people, customers, and legacy—and unlock their
