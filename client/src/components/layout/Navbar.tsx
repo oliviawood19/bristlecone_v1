@@ -115,6 +115,11 @@ export function Navbar() {
             side="right"
             className="w-[100vw] sm:w-[100vw] h-full border-none bg-background p-0 flex flex-col items-center justify-center"
           >
+            <img
+              src={pineconeLogo}
+              alt="Bristlecone Companies"
+              className="absolute top-6 left-6 h-10 w-auto object-contain opacity-80"
+            />
             <div className="flex flex-col gap-8 text-center items-center px-6">
               <a
                 href="https://jobs.ashbyhq.com/bristleconecompanies"
