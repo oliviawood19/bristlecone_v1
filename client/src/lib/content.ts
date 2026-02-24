@@ -124,7 +124,7 @@ export interface FooterLink {
  */
 export const FOOTER_NAV_LINKS: FooterLink[] = [
   { label: "Home", href: "/" },
-  // Future pages: { label: "About", href: "/about" }, { label: "Portfolio", href: "/portfolio" }
+  { label: "Careers", href: "https://jobs.ashbyhq.com/bristleconecompanies" },
 ];
 
 /**
