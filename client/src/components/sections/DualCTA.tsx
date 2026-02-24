@@ -1,74 +1,73 @@
-import * as React from "react";
+/**
+ * DualCTA.tsx
+ * ------------
+ * Side-by-side call-to-action panels used at the bottom of the home page.
+ *
+ * Panels:
+ *   - "Ready to Sell Your Business?" (primary/dark variant)
+ *   - "Excited to Join Our Team?"    (default/light variant)
+ *
+ * Texture:  Shared <WoodGrainOverlay> component (no inline background styles).
+ * Content:  CTA_PANELS array from lib/content.ts.
+ * Button:   <Button asChild variant="link-animated"> for the panel CTAs.
+ *
+ * Layout:   Single column on mobile → two columns on md+.
+ */
+
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { WoodGrainOverlay } from "@/components/ui/WoodGrainOverlay";
 import { staggerContainer, staggerItem, reducedStaggerItem } from "./Section";
+import { CTA_PANELS, type CTAPanel } from "@/lib/content";
 import { cn } from "@/lib/utils";
-import woodGrainPattern from "@assets/generated_images/abstract_bristlecone_pine_wood_grain_line_pattern.png";
 
-interface CTAPanelProps {
-  headline: string;
-  ctaText: string;
-  href: string;
-  variant?: "default" | "primary";
+// ─── CTAPanelCard ─────────────────────────────────────────────────────────────
+
+interface CTAPanelCardProps {
+  panel: CTAPanel;
 }
 
-function CTAPanel({
-  headline,
-  ctaText,
-  href,
-  variant = "default",
-}: CTAPanelProps) {
+function CTAPanelCard({ panel }: CTAPanelCardProps) {
   const shouldReduceMotion = useReducedMotion();
   const itemVariants = shouldReduceMotion ? reducedStaggerItem : staggerItem;
-  const isPrimary = variant === "primary";
+  const isPrimary = panel.variant === "primary";
 
   return (
     <motion.div
       variants={itemVariants}
       className={cn(
-        "relative overflow-hidden rounded-xl sm:rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 min-h-[240px] sm:min-h-[280px]",
+        // Base layout
+        "relative overflow-hidden",
+        "rounded-xl sm:rounded-2xl md:rounded-3xl",
+        "p-6 sm:p-8 md:p-12 lg:p-16",
+        "min-h-[240px] sm:min-h-[280px]",
         "flex flex-col justify-between",
+        // Variant backgrounds
         isPrimary
-          ? "bg-primary" // keep your token
+          ? "bg-primary"
           : "bg-primary/[0.03] border border-border/50",
       )}
     >
-      {/* Background layers (NO blend modes) */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Pattern */}
-        <div
-          className={cn(
-            "absolute inset-0",
-            isPrimary ? "opacity-[0.08]" : "opacity-[0.06]",
-          )}
-          style={{
-            backgroundImage: `url(${woodGrainPattern})`,
-            backgroundRepeat: "repeat",
-            backgroundSize: "520px",
-            backgroundPosition: "center",
-          }}
-        />
+      {/* Wood-grain texture overlay (+ gradient wash on the dark variant) */}
+      <WoodGrainOverlay
+        opacity={isPrimary ? 0.08 : 0.06}
+        withGradientWash={isPrimary}
+      />
 
-        {/* Gentle wash for primary variant only */}
-        {isPrimary && (
-          <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-transparent" />
-        )}
-      </div>
-
-      {/* Content */}
+      {/* Headline */}
       <div className="relative z-10">
         <h3
           className={cn(
             "font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight",
-            // Force legibility (tokens are betraying you here)
             isPrimary ? "text-white" : "text-foreground",
           )}
         >
-          {headline}
+          {panel.headline}
         </h3>
       </div>
 
+      {/* CTA link — Button component with link-animated variant */}
       <div className="relative z-10 pt-8">
         <Button
           asChild
@@ -80,8 +79,8 @@ function CTAPanel({
               : "text-foreground",
           )}
         >
-          <a href={href}>
-            {ctaText}
+          <a href={panel.href}>
+            {panel.ctaText}
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
         </Button>
@@ -90,11 +89,12 @@ function CTAPanel({
   );
 }
 
-const ownerMailto =
-  "mailto:info@bristleconecompanies.com?subject=Selling%20My%20Business&body=Name%3A%0ACompany%3A%0ARevenue%2FEBITDA%3A%0ATimeline%3A%0ANotes%3A";
-const talentMailto =
-  "mailto:info@bristleconecompanies.com?subject=Careers%20Inquiry&body=Name%3A%0ARole%20Interest%3A%0ALinkedIn%3A%0AResume%20Link%3A%0ANotes%3A";
+// ─── DualCTA ──────────────────────────────────────────────────────────────────
 
+/**
+ * Renders the two CTA panels in a staggered grid.
+ * Drop this inside any <Section> wrapper.
+ */
 export function DualCTA() {
   return (
     <motion.div
@@ -104,18 +104,9 @@ export function DualCTA() {
       viewport={{ once: true, amount: 0.2 }}
       className="grid md:grid-cols-2 gap-6 md:gap-8"
     >
-      <CTAPanel
-        headline="Ready to Sell Your Business?"
-        ctaText="Get in Touch"
-        href={ownerMailto}
-        variant="primary"
-      />
-      <CTAPanel
-        headline="Excited to Join Our Team?"
-        ctaText="Careers"
-        href={talentMailto}
-        variant="default"
-      />
+      {CTA_PANELS.map((panel) => (
+        <CTAPanelCard key={panel.headline} panel={panel} />
+      ))}
     </motion.div>
   );
 }
