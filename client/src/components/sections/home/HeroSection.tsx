@@ -16,7 +16,7 @@ import bristleconeTreeImg from "@assets/drawn_bristlecone.png";
 
 export function HeroSection() {
   return (
-    <section className="relative bg-background overflow-hidden min-h-screen flex flex-col mt-4 sm:mt-6">
+    <section className="relative bg-background overflow-hidden min-h-[85vh] sm:min-h-screen flex flex-col mt-4 sm:mt-6">
 
       {/* ── Mobile: full-bleed background tree image ─────────────────── */}
       <div className="absolute inset-0 lg:hidden pointer-events-none">
@@ -49,11 +49,11 @@ export function HeroSection() {
       </div>
 
       {/* ── Content inside container-custom for consistent margins ──── */}
-      <div className="relative z-10 container-custom flex-1 flex items-center min-h-screen">
+      <div className="relative z-10 container-custom flex-1 flex items-center min-h-[85vh] sm:min-h-screen">
         <div
           className="
             lg:w-[55%] lg:overflow-visible
-            pt-28 pb-16 sm:pt-36 sm:pb-20 lg:py-0
+            pt-24 pb-12 sm:pt-36 sm:pb-20 lg:py-0
           "
         >
           <h1
