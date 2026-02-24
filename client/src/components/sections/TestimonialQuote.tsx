@@ -23,7 +23,7 @@
 
 import * as React from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { staggerItem, reducedStaggerItem } from "./Section";
+import { staggerContainer, staggerItem, reducedStaggerItem } from "./Section";
 import type { Testimonial } from "@/lib/content";
 
 // ─── Standalone quote (for potential reuse on other pages) ────────────────────
@@ -68,7 +68,13 @@ export function TestimonialGrid({ testimonials }: TestimonialGridProps) {
   const itemVariants = shouldReduceMotion ? reducedStaggerItem : staggerItem;
 
   return (
-    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12"
+    >
       {testimonials.map((testimonial, index) => (
         <motion.div
           key={index}
@@ -100,6 +106,6 @@ export function TestimonialGrid({ testimonials }: TestimonialGridProps) {
 
         </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 }

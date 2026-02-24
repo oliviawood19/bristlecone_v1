@@ -13,49 +13,42 @@ export function Footer() {
     <footer className="bg-primary text-primary-foreground border-t border-primary-foreground/10">
       <div className="container-custom py-4 sm:py-5">
 
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
+        <div className="flex flex-col gap-4">
 
-          {/* ── LEFT: logo + copyright ─────────────────────────────────── */}
-          <div className="flex flex-col items-start gap-2">
+          {/* ── TOP ROW: logo, nav links, LinkedIn + Inc 5000 ──────────── */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
             <img
               src={signatureLogo}
               alt="Bristlecone Companies"
               className="h-8 sm:h-10 w-auto object-contain brightness-0 invert opacity-90"
             />
-            <span className="text-xs text-primary-foreground/40">
-              &copy; {new Date().getFullYear()} Bristlecone Companies
-            </span>
-          </div>
 
-          {/* ── CENTER: nav links ──────────────────────────────────────── */}
-          <nav aria-label="Footer navigation">
-            <ul className="flex items-center gap-4">
-              {FOOTER_NAV_LINKS.map((link) => (
-                <li key={link.label}>
-                  {link.href.startsWith("http") ? (
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </nav>
+            <nav aria-label="Footer navigation">
+              <ul className="flex items-center gap-4">
+                {FOOTER_NAV_LINKS.map((link) => (
+                  <li key={link.label}>
+                    {link.href.startsWith("http") ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-          {/* ── RIGHT: LinkedIn + Inc 5000 + legal ─────────────────────── */}
-          <div className="flex flex-col items-start sm:items-end gap-2">
             <div className="flex items-center gap-4">
               <a
                 href={LINKEDIN_URL}
@@ -72,6 +65,13 @@ export function Footer() {
                 className="h-14 sm:h-16 w-auto object-contain"
               />
             </div>
+          </div>
+
+          {/* ── BOTTOM ROW: copyright + legal links aligned ────────────── */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-t border-primary-foreground/10 pt-3">
+            <span className="text-xs text-primary-foreground/40">
+              &copy; {new Date().getFullYear()} Bristlecone Companies
+            </span>
             <div className="flex items-center gap-2 text-xs text-primary-foreground/40">
               {FOOTER_LEGAL_LINKS.map((link, i) => (
                 <span key={link.label}>

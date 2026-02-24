@@ -38,7 +38,7 @@ export function SingleCTA() {
           <Button
             asChild
             variant="outline"
-            className="group rounded-none font-serif text-base text-primary border-primary"
+            className="group rounded-none font-serif text-base text-primary border-primary hover:bg-primary hover:text-primary-foreground"
           >
             <a href={`mailto:${CTA_EMAIL}`} data-testid="button-start-conversation">
               Start a Conversation
