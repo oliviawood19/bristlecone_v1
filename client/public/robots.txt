@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bristleconecompanies.com/sitemap.xml
