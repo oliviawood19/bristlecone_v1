@@ -44,35 +44,29 @@ export function HeroSection() {
         <div
           className="
             relative z-10 flex flex-col justify-center
-            flex-none lg:w-[52%]
-            px-6 sm:px-12 lg:px-20
+            flex-none lg:w-[55%]
+            px-4 sm:px-6 lg:px-8
             pt-28 pb-16 sm:pt-36 sm:pb-20 lg:py-0
+            lg:overflow-visible
           "
         >
           {/* Headline — staggered fade-up (hero-fade-2) */}
           <h1
             className="
-              hero-fade-2 font-serif font-bold text-primary leading-[1.08] tracking-[-0.01em]
-              text-[32px] sm:text-5xl md:text-6xl lg:text-[64px] xl:text-[72px]
-              mb-6 sm:mb-8
+              hero-fade-2 font-serif font-bold text-primary leading-[1.10] tracking-[-0.01em]
+              text-[28px] sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[50px]
+              mb-6 sm:mb-8 lg:max-w-[130%]
             "
           >
-            Enduring
-            <br className="sm:hidden" />
-            <span className="hidden sm:inline"> </span>
-            ownership
-            <br />
-            for enduring
-            <br />
-            businesses
+            Enduring ownership for enduring businesses
           </h1>
 
           {/* Body copy */}
           <p
             className="
               hero-fade-4 font-sans font-light text-muted-foreground
-              text-[15px] sm:text-lg leading-relaxed
-              max-w-[44ch] mb-10 sm:mb-12
+              text-base sm:text-xl md:text-[22px] leading-relaxed
+              max-w-[48ch] mb-10 sm:mb-12
             "
           >
             Bristlecone acquires and operates essential businesses to steward
@@ -96,7 +90,7 @@ export function HeroSection() {
           On lg+ the tree is shown in its own panel occupying the right 48%.
           A left-edge gradient softly blends the panel into the left column.
         */}
-        <div className="relative flex-none lg:w-[48%] hidden lg:block lg:h-auto overflow-hidden">
+        <div className="relative flex-none lg:w-[45%] hidden lg:block lg:h-auto overflow-hidden">
           {/* Left-edge soft fade into background */}
           <div
             className="
