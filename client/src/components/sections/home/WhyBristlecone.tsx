@@ -70,7 +70,7 @@ export function WhyBristlecone() {
            * py-*                   vertical breathing room, matching right col.
            */}
           <motion.div
-            className="py-12 sm:py-16 md:py-24 lg:pt-24 lg:pb-8 lg:sticky lg:top-24 lg:self-start"
+            className="py-12 sm:py-16 md:py-24 lg:pt-10 lg:pb-8 lg:sticky lg:top-20 lg:self-start"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
