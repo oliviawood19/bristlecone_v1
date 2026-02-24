@@ -16,7 +16,7 @@ import bristleconeTreeImg from "@assets/drawn_bristlecone.png";
 
 export function HeroSection() {
   return (
-    <section className="relative bg-background overflow-hidden min-h-screen flex flex-col">
+    <section className="relative bg-background overflow-hidden min-h-screen flex flex-col mt-4 sm:mt-6">
 
       {/* ── Split-screen body ───────────────────────────────────────────── */}
       <div className="relative flex flex-col lg:flex-row flex-1 min-h-screen">
