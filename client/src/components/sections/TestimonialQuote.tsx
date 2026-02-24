@@ -79,8 +79,8 @@ export function TestimonialGrid({ testimonials }: TestimonialGridProps) {
           {/* ── Company logo ──────────────────────────────────────────────── */}
           <div className="mb-6">
             <img
-              src={testimonial.logo}
-              alt={testimonial.logoAlt}
+              src={testimonial.logoImage}
+              alt={testimonial.author}
               className="h-6 w-auto object-contain opacity-50"
             />
           </div>
@@ -93,7 +93,7 @@ export function TestimonialGrid({ testimonials }: TestimonialGridProps) {
           {/* ── Divider + author row ──────────────────────────────────────── */}
           <div className="pt-5 border-t border-border flex items-center gap-4">
             <img
-              src={testimonial.headshot}
+              src={testimonial.headshotImage}
               alt={testimonial.author}
               className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover flex-shrink-0 ring-2 ring-border"
             />

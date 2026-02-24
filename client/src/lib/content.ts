@@ -10,15 +10,14 @@
  *  - TypeScript enforces consistent data shapes across components
  */
 
-// ─── Asset imports ────────────────────────────────────────────────────────────
-// Testimonial company logos
-import systrendsLogo    from "@/assets/testimonials/logos/systrends-logo.png";
-import certServiceLogo  from "@/assets/testimonials/logos/certificate-of-service-logo.png";
-
-// Testimonial founder headshots
-import kathrynHeadshot  from "@/assets/testimonials/headshots/kathryn-jump.jpg";
-import daveHeadshot     from "@/assets/testimonials/headshots/dave-darnell.jpg";
-import jayHeadshot      from "@/assets/testimonials/headshots/jay-jump.jpg";
+// ─── Asset imports (must be at top level for TypeScript/Vite) ─────────────────
+// Testimonial company logos — drop replacements into attached_assets/
+import systrendsLogo    from "@assets/systrends-logo.png";
+import certServiceLogo  from "@assets/certificate-of-service-logo.png";
+// Testimonial founder headshots — drop replacements into attached_assets/
+import kathrynHeadshot  from "@assets/kathryn-jump.jpg";
+import daveHeadshot     from "@assets/dave-darnell.jpg";
+import jayHeadshot      from "@assets/jay-jump.jpg";
 
 // ─── Contact / mailto URLs ────────────────────────────────────────────────────
 
@@ -77,47 +76,37 @@ export interface Testimonial {
   quote: string;
   author: string;
   role: string;
-  /** Founder headshot — displayed as a circular avatar on the card */
-  headshot: string;
-  /** Company logo — displayed at the bottom of the card */
-  logo: string;
-  /** Alt text for the company logo image */
-  logoAlt: string;
+  logoImage: string;
+  headshotImage: string;
 }
 
 /**
  * Three founder testimonials rendered in the <TestimonialGrid> component.
- * To swap in real headshots/logos, replace the files in:
- *   client/src/assets/testimonials/headshots/
- *   client/src/assets/testimonials/logos/
  */
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "When you're selling something you built with your own hands, you're on high alert for red flags and your gut instinct matters. I didn't have a single concern with Bristlecone. At the end of it, I sold to people I was happy to call friends.",
+      "When you're selling something you built with your own hands, you’re on high alert for red flags and your gut instinct matters. I didn't have a single concern with Bristlecone. At the end of it, I sold to people I was happy to call friends.",
     author: "Kathryn Jump",
     role: "Co-Founder, Certificate of Service",
-    headshot: kathrynHeadshot,
-    logo: certServiceLogo,
-    logoAlt: "Certificate of Service",
+    logoImage: certServiceLogo,
+    headshotImage: kathrynHeadshot,
   },
   {
     quote:
       "A lot of buyers will turn around and sell a business again quickly, and the company's identity just disappears. What's impressed me about Bristlecone is that Systrends has kept growing while staying true to what we built. The business has nearly doubled and it still feels like mine.",
     author: "Dave Darnell",
     role: "Founder, Systrends",
-    headshot: daveHeadshot,
-    logo: systrendsLogo,
-    logoAlt: "Systrends",
+    logoImage: systrendsLogo,
+    headshotImage: daveHeadshot,
   },
   {
     quote:
-      "There was so much trust and confidence in dealing with Bristlecone. They were transparent from day one, moved quickly when we were ready, and kept every commitment they made. Selling to them was the right decision for me and my team.",
+      "Most buyers understood what was in the prospectus. Bristlecone understood what we'd actually built — and I recognized in them the same instincts it took to build it.",
     author: "Jay Jump",
     role: "Co-Founder, Certificate of Service",
-    headshot: jayHeadshot,
-    logo: certServiceLogo,
-    logoAlt: "Certificate of Service",
+    logoImage: certServiceLogo,
+    headshotImage: jayHeadshot,
   },
 ];
 
