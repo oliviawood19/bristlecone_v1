@@ -12,12 +12,12 @@
 
 // ─── Asset imports (must be at top level for TypeScript/Vite) ─────────────────
 // Testimonial company logos — drop replacements into attached_assets/
-import systrendsLogo    from "@assets/systrends-logo.png";
-import certServiceLogo  from "@assets/certificate-of-service-logo.png";
+import systrendsLogo from "@assets/systrends-logo.png";
+import certServiceLogo from "@assets/certificate-of-service-logo.png";
 // Testimonial founder headshots — drop replacements into attached_assets/
-import kathrynHeadshot  from "@assets/kathryn-jump.jpg";
-import daveHeadshot     from "@assets/dave-darnell.jpg";
-import jayHeadshot      from "@assets/jay-jump.jpg";
+import kathrynHeadshot from "@assets/kathryn-jump.jpg";
+import daveHeadshot from "@assets/dave-darnell.jpg";
+import jayHeadshot from "@assets/jay-jump.jpg";
 
 // ─── Contact / mailto URLs ────────────────────────────────────────────────────
 
@@ -38,7 +38,8 @@ export const TALENT_MAILTO =
   "mailto:info@bristleconecompanies.com?subject=Careers%20Inquiry&body=Name%3A%0ARole%20Interest%3A%0ALinkedIn%3A%0AResume%20Link%3A%0ANotes%3A";
 
 /** LinkedIn profile URL */
-export const LINKEDIN_URL = "https://www.linkedin.com/company/bristleconecompanies/";
+export const LINKEDIN_URL =
+  "https://www.linkedin.com/company/bristleconecompanies/";
 
 // ─── Section: What We Do (principle cards) ────────────────────────────────────
 
@@ -86,6 +87,14 @@ export interface Testimonial {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
+      "Most buyers understood what was in the prospectus. Bristlecone understood what we'd actually built — and I recognized in them the same instincts it took to build it.",
+    author: "Jay Jump",
+    role: "Co-Founder, Certificate of Service",
+    logoImage: certServiceLogo,
+    headshotImage: jayHeadshot,
+  },
+  {
+    quote:
       "When you're selling something you built with your own hands, you’re on high alert for red flags and your gut instinct matters. I didn't have a single concern with Bristlecone. At the end of it, I sold to people I was happy to call friends.",
     author: "Kathryn Jump",
     role: "Co-Founder, Certificate of Service",
@@ -99,14 +108,6 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Founder, Systrends",
     logoImage: systrendsLogo,
     headshotImage: daveHeadshot,
-  },
-  {
-    quote:
-      "Most buyers understood what was in the prospectus. Bristlecone understood what we'd actually built — and I recognized in them the same instincts it took to build it.",
-    author: "Jay Jump",
-    role: "Co-Founder, Certificate of Service",
-    logoImage: certServiceLogo,
-    headshotImage: jayHeadshot,
   },
 ];
 
@@ -131,7 +132,7 @@ export const FOOTER_NAV_LINKS: FooterLink[] = [
  * Replace "#" with real policy URLs when they're ready.
  */
 export const FOOTER_LEGAL_LINKS: FooterLink[] = [
-  { label: "Privacy Policy",      href: "#" }, // TODO: add real URL
+  { label: "Privacy Policy", href: "#" }, // TODO: add real URL
   { label: "Terms and Conditions", href: "#" }, // TODO: add real URL
 ];
 

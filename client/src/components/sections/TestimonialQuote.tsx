@@ -76,15 +76,6 @@ export function TestimonialGrid({ testimonials }: TestimonialGridProps) {
           className="bg-card border border-border rounded-xl sm:rounded-2xl p-6 sm:p-8 flex flex-col"
         >
 
-          {/* ── Company logo ──────────────────────────────────────────────── */}
-          <div className="mb-6">
-            <img
-              src={testimonial.logoImage}
-              alt={testimonial.author}
-              className="h-6 w-auto object-contain opacity-50"
-            />
-          </div>
-
           {/* ── Quote (no quotation marks) ────────────────────────────────── */}
           <blockquote className="font-serif text-base sm:text-lg leading-relaxed text-foreground flex-1 mb-6">
             {testimonial.quote}
