@@ -26,11 +26,10 @@ export function TestimonialsSection() {
       >
         <SectionHeader
           eyebrow="Testimonials"
-          title="Founders Trust The Process."
+          title="In their words."
           description={
             <p>
-              We've spent years building a reputation for doing exactly what
-              we say we'll do.
+              We are proud to be 100% referenceable with the owners who have entrusted us with their life’s work.
             </p>
           }
         />

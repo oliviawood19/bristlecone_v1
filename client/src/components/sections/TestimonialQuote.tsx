@@ -1,7 +1,32 @@
+/**
+ * TestimonialQuote.tsx
+ * ---------------------
+ * Reusable testimonial card components.
+ *
+ * <TestimonialQuote> — standalone single card (kept for potential future use).
+ * <TestimonialGrid>  — renders a responsive 3-column grid of founder cards.
+ *
+ * Each card layout:
+ *   ┌──────────────────────────────────┐
+ *   │  [company logo]                  │
+ *   │                                  │
+ *   │  Quote text in serif…            │
+ *   │                                  │
+ *   │  ──────────────────────────────  │
+ *   │  [headshot]  Author name         │
+ *   │              Role / company      │
+ *   └──────────────────────────────────┘
+ *
+ * Asset paths come from content.ts — swap images there without touching
+ * this component.
+ */
+
 import * as React from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { Quote } from "lucide-react";
 import { staggerItem, reducedStaggerItem } from "./Section";
+import type { Testimonial } from "@/lib/content";
+
+// ─── Standalone quote (for potential reuse on other pages) ────────────────────
 
 interface TestimonialQuoteProps {
   quote: string;
@@ -18,9 +43,8 @@ export function TestimonialQuote({ quote, author, role }: TestimonialQuoteProps)
       variants={itemVariants}
       className="border-l-2 border-accent/30 pl-6 md:pl-8 py-2"
     >
-      <Quote className="w-6 h-6 text-accent/40 mb-4" />
       <blockquote className="font-serif text-xl md:text-2xl lg:text-3xl leading-relaxed text-foreground mb-6">
-        "{quote}"
+        {quote}
       </blockquote>
       <footer className="text-muted-foreground">
         <cite className="not-italic">
@@ -33,8 +57,10 @@ export function TestimonialQuote({ quote, author, role }: TestimonialQuoteProps)
   );
 }
 
+// ─── Grid of rich founder cards ───────────────────────────────────────────────
+
 interface TestimonialGridProps {
-  testimonials: TestimonialQuoteProps[];
+  testimonials: Testimonial[];
 }
 
 export function TestimonialGrid({ testimonials }: TestimonialGridProps) {
@@ -47,18 +73,40 @@ export function TestimonialGrid({ testimonials }: TestimonialGridProps) {
         <motion.div
           key={index}
           variants={itemVariants}
-          className="bg-primary rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8"
+          className="bg-card border border-border rounded-xl sm:rounded-2xl p-6 sm:p-8 flex flex-col"
         >
-          <Quote className="w-6 h-6 text-primary-foreground/40 mb-4" />
-          <blockquote className="font-serif text-base sm:text-lg md:text-xl leading-relaxed text-primary-foreground mb-4 sm:mb-6">
-            "{testimonial.quote}"
+
+          {/* ── Company logo ──────────────────────────────────────────────── */}
+          <div className="mb-6">
+            <img
+              src={testimonial.logo}
+              alt={testimonial.logoAlt}
+              className="h-6 w-auto object-contain opacity-50"
+            />
+          </div>
+
+          {/* ── Quote (no quotation marks) ────────────────────────────────── */}
+          <blockquote className="font-serif text-base sm:text-lg leading-relaxed text-foreground flex-1 mb-6">
+            {testimonial.quote}
           </blockquote>
-          <footer className="pt-4 border-t border-primary-foreground/20 text-sm text-primary-foreground/70">
-            <cite className="not-italic">
-              <span className="font-medium text-primary-foreground block">{testimonial.author}</span>
-              <span>{testimonial.role}</span>
-            </cite>
-          </footer>
+
+          {/* ── Divider + author row ──────────────────────────────────────── */}
+          <div className="pt-5 border-t border-border flex items-center gap-4">
+            <img
+              src={testimonial.headshot}
+              alt={testimonial.author}
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover flex-shrink-0 ring-2 ring-border"
+            />
+            <div>
+              <p className="font-medium text-foreground leading-tight">
+                {testimonial.author}
+              </p>
+              <p className="text-sm text-muted-foreground leading-snug mt-0.5">
+                {testimonial.role}
+              </p>
+            </div>
+          </div>
+
         </motion.div>
       ))}
     </div>

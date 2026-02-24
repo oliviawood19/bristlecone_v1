@@ -11,10 +11,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection }           from "@/components/sections/home/HeroSection";
-import { WhatWeDoSection }       from "@/components/sections/home/WhatWeDoSection";
-import { WhyBristleconeSection } from "@/components/sections/home/WhyBristleconeSection";
-import { WhoWeAreSection }       from "@/components/sections/home/WhoWeAreSection";
-import { WhatWeOfferSection }    from "@/components/sections/home/WhatWeOfferSection";
+import { WhyBristlecone }       from "@/components/sections/home/WhyBristlecone";
 import { TestimonialsSection }   from "@/components/sections/home/TestimonialsSection";
 import { CTASection }            from "@/components/sections/home/CTASection";
 
@@ -25,10 +22,7 @@ export default function Home() {
 
       <main>
         <HeroSection />
-        <WhatWeDoSection />
-        <WhyBristleconeSection />
-        <WhoWeAreSection />
-        <WhatWeOfferSection />
+        <WhyBristlecone />
         <TestimonialsSection />
         <CTASection />
       </main>
