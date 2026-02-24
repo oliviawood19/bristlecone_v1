@@ -214,6 +214,19 @@
     @apply active:translate-y-0 active:shadow-none;
   }
 
+  .no-elevate.hover-elevate {
+    --tw-translate-y: 0 !important;
+    --tw-shadow: 0 0 #0000 !important;
+    box-shadow: none !important;
+    transform: translateY(0) !important;
+  }
+  .no-elevate.hover-elevate:hover {
+    --tw-translate-y: 0 !important;
+    --tw-shadow: 0 0 #0000 !important;
+    box-shadow: none !important;
+    transform: translateY(0) !important;
+  }
+
   /* ── Card ────────────────────────────────────────────────────────────── */
 
   /**
