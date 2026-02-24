@@ -16,7 +16,7 @@ export function Footer() {
         <div className="flex flex-col gap-4">
 
           {/* ── TOP ROW: logo, nav links, LinkedIn + Inc 5000 ──────────── */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
+          <div className="flex flex-col items-center sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
             <img
               src={signatureLogo}
               alt="Bristlecone Companies"
@@ -24,7 +24,7 @@ export function Footer() {
             />
 
             <nav aria-label="Footer navigation">
-              <ul className="flex flex-wrap items-center gap-3 sm:gap-4">
+              <ul className="flex flex-wrap justify-center items-center gap-3 sm:gap-4">
                 {FOOTER_NAV_LINKS.map((link) => (
                   <li key={link.label}>
                     {link.href.startsWith("http") ? (
@@ -68,11 +68,11 @@ export function Footer() {
           </div>
 
           {/* ── BOTTOM ROW: copyright + legal links aligned ────────────── */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-t border-primary-foreground/10 pt-3">
+          <div className="flex flex-col items-center sm:flex-row sm:items-center justify-between gap-2 border-t border-primary-foreground/10 pt-3">
             <span className="text-xs text-primary-foreground/40">
               &copy; {new Date().getFullYear()} Bristlecone Companies
             </span>
-            <div className="flex items-center gap-2 text-xs text-primary-foreground/40">
+            <div className="flex items-center justify-center gap-2 text-xs text-primary-foreground/40">
               {FOOTER_LEGAL_LINKS.map((link, i) => (
                 <span key={link.label}>
                   {i > 0 && (
