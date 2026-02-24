@@ -136,30 +136,3 @@ export const FOOTER_LEGAL_LINKS: FooterLink[] = [
   { label: "Terms and Conditions", href: "#" }, // TODO: add real URL
 ];
 
-// ─── Section: Dual CTA panels ─────────────────────────────────────────────────
-
-export interface CTAPanel {
-  headline: string;
-  ctaText: string;
-  href: string;
-  variant: "primary" | "default";
-}
-
-/**
- * Two CTA panels at the bottom of the home page.
- * "primary" renders on the dark brand background; "default" on a light tint.
- */
-export const CTA_PANELS: CTAPanel[] = [
-  {
-    headline: "Ready to Sell Your Business?",
-    ctaText: "Get in Touch",
-    href: OWNER_MAILTO,
-    variant: "primary",
-  },
-  {
-    headline: "Excited to Join Our Team?",
-    ctaText: "Careers",
-    href: TALENT_MAILTO,
-    variant: "default",
-  },
-];
