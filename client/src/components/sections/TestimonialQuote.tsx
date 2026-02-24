@@ -79,7 +79,7 @@ export function TestimonialGrid({ testimonials }: TestimonialGridProps) {
         <motion.div
           key={index}
           variants={itemVariants}
-          className="bg-card border border-border rounded-xl sm:rounded-2xl p-6 sm:p-8 flex flex-col"
+          className="bg-card border border-border rounded-xl sm:rounded-2xl p-6 sm:p-8 flex flex-col shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-border/80"
         >
 
           {/* ── Quote (no quotation marks) ────────────────────────────────── */}
