@@ -119,9 +119,6 @@ export function Navbar() {
               <h2 className="text-3xl sm:text-4xl font-serif font-bold text-foreground animate-in fade-in slide-in-from-bottom-4 duration-500">
                 Get in Touch
               </h2>
-              <p className="text-lg text-muted-foreground max-w-xs animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
-                We'd love to hear from you.
-              </p>
               <a
                 href="https://jobs.ashbyhq.com/bristleconecompanies"
                 target="_blank"
