@@ -17,7 +17,6 @@ import bristleconeTreeImg from "@assets/drawn_bristlecone.png";
 export function HeroSection() {
   return (
     <section className="relative bg-background overflow-hidden min-h-[85vh] sm:min-h-screen flex flex-col mt-4 sm:mt-6">
-
       {/* ── Mobile: full-bleed background tree image ─────────────────── */}
       <div className="absolute inset-0 lg:hidden pointer-events-none">
         <div className="absolute inset-0 hero-tree">
@@ -30,7 +29,6 @@ export function HeroSection() {
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 via-60% to-transparent" />
       </div>
-
       {/* ── Desktop: tree image pinned to the right edge ─────────────── */}
       <div className="absolute inset-y-0 right-0 w-[45%] hidden lg:block pointer-events-none">
         <div
@@ -47,7 +45,6 @@ export function HeroSection() {
           />
         </div>
       </div>
-
       {/* ── Content inside container-custom for consistent margins ──── */}
       <div className="relative z-10 container-custom flex-1 flex items-center min-h-[85vh] sm:min-h-screen">
         <div
@@ -57,11 +54,7 @@ export function HeroSection() {
           "
         >
           <h1
-            className="
-              hero-fade-2 font-serif font-bold text-primary leading-[1.10] tracking-[-0.01em]
-              text-[28px] sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[50px]
-              mb-6 sm:mb-8 lg:max-w-[130%]
-            "
+            className="hero-fade-2 font-serif font-bold text-primary tracking-[-0.01em] sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[50px] mb-6 sm:mb-8 lg:max-w-[130%] text-[48px]"
           >
             Enduring ownership for enduring businesses
           </h1>
