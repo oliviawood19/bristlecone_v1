@@ -20,7 +20,7 @@ export function Footer() {
             <img
               src={signatureLogo}
               alt="Bristlecone Companies"
-              className="h-8 sm:h-10 w-auto object-contain brightness-0 invert opacity-90"
+              className="h-12 sm:h-14 w-auto object-contain brightness-0 invert opacity-90"
             />
 
             <nav aria-label="Footer navigation">
@@ -57,12 +57,12 @@ export function Footer() {
                 aria-label="Bristlecone Companies on LinkedIn"
                 className="text-primary-foreground/60 hover:text-primary-foreground transition-colors"
               >
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-7 w-7" />
               </a>
               <img
                 src={inc5000Badge}
                 alt="Inc. 5000 — America's Fastest-Growing Private Companies"
-                className="h-14 sm:h-16 w-auto object-contain"
+                className="h-20 sm:h-24 w-auto object-contain"
               />
             </div>
           </div>
