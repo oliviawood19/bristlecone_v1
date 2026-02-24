@@ -116,9 +116,6 @@ export function Navbar() {
             className="w-[100vw] sm:w-[100vw] h-full border-none bg-background p-0 flex flex-col items-center justify-center"
           >
             <div className="flex flex-col gap-8 text-center items-center px-6">
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-foreground animate-in fade-in slide-in-from-bottom-4 duration-500">
-                Get in Touch
-              </h2>
               <a
                 href="https://jobs.ashbyhq.com/bristleconecompanies"
                 target="_blank"
