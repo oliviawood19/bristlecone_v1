@@ -45,7 +45,7 @@ function serveFile(res, filePath, cacheControl) {
 
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
-  let filePath = path.join(DIST, url.pathname);
+  let filePath = path.join(DIST, decodeURIComponent(url.pathname));
 
   const isAssets = url.pathname.startsWith("/assets/");
   const cacheControl = isAssets
