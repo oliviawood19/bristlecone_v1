@@ -141,6 +141,6 @@ export const FOOTER_NAV_LINKS: FooterLink[] = [
  */
 export const FOOTER_LEGAL_LINKS: FooterLink[] = [
   { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms and Conditions", href: "#" }, // TODO: add real URL
+  { label: "Terms of Use", href: "/terms-of-use" },
 ];
 

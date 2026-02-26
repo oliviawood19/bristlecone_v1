@@ -27,6 +27,7 @@ A React frontend website built with Vite, using Tailwind CSS for styling and var
 ## Pages
 - `/` - Home page (hero, why bristlecone, testimonials, CTA)
 - `/privacy-policy` - Privacy Policy (static legal page)
+- `/terms-of-use` - Terms of Use (static legal page)
 
 ## Development
 - Run `npm run dev` to start the development server on port 5000
