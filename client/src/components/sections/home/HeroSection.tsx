@@ -24,6 +24,8 @@ export function HeroSection() {
             src={bristleconeTreeImg}
             alt=""
             aria-hidden="true"
+            loading="eager"
+            fetchPriority="high"
             className="w-full h-full object-cover object-bottom opacity-90"
           />
         </div>
@@ -41,6 +43,8 @@ export function HeroSection() {
           <img
             src={bristleconeTreeImg}
             alt="Bristlecone Pine illustration"
+            loading="eager"
+            fetchPriority="high"
             className="w-full h-full object-cover object-center opacity-90"
           />
         </div>

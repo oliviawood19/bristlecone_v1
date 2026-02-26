@@ -1,9 +1,15 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { SEOHead } from "@/components/SEOHead";
 
 export default function TermsOfUse() {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <SEOHead
+        title="Terms of Use | Bristlecone Companies"
+        description="Review the terms and conditions governing your use of the Bristlecone Companies website."
+        path="/terms-of-use"
+      />
       <Navbar />
       <main className="flex-1">
         <div className="container-custom pt-32 pb-6 sm:pt-40 sm:pb-8">

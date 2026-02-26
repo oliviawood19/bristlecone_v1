@@ -38,6 +38,12 @@ A React frontend website built with Vite, using Tailwind CSS for styling and var
 - The development server binds to `0.0.0.0:5000` and allows all hosts for Replit compatibility
 - Static builds are output to the `dist/` directory
 
+## SEO
+- **Per-page meta tags**: Custom `SEOHead` component (`client/src/components/SEOHead.tsx`) dynamically sets title, description, canonical URL, OG tags, and Twitter card tags per page
+- **Schema markup**: Organization + WebSite schemas in `index.html`; Review/Testimonial ItemList schema rendered on home page
+- **Image optimization**: Hero images use `loading="eager"` + `fetchPriority="high"`; below-fold images (testimonial headshots, Inc 5000 badge) use `loading="lazy"`
+- **Production server** (`serve.cjs`): Gzip compression for text-based assets, cache headers (1-year immutable for hashed assets, must-revalidate for HTML), SPA fallback routing
+
 ## Mobile Responsiveness
 The site is fully mobile-responsive with the following design decisions:
 - **Touch targets**: All buttons have minimum 44px height for accessibility

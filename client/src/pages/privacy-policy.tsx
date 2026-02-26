@@ -1,9 +1,15 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { SEOHead } from "@/components/SEOHead";
 
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <SEOHead
+        title="Privacy Policy | Bristlecone Companies"
+        description="Learn how Bristlecone Companies collects, uses, and protects your personal information. Read our full privacy policy."
+        path="/privacy-policy"
+      />
       <Navbar />
       <main className="flex-1">
         <div className="container-custom pt-32 pb-6 sm:pt-40 sm:pb-8">

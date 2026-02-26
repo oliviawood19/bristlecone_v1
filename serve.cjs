@@ -1,6 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+const zlib = require("zlib");
 
 const PORT = process.env.PORT || 5000;
 const DIST = path.join(__dirname, "dist");
@@ -25,13 +26,34 @@ const MIME_TYPES = {
   ".webmanifest": "application/manifest+json",
 };
 
-function serveFile(res, filePath, cacheControl) {
+const COMPRESSIBLE = new Set([
+  "text/html",
+  "application/javascript",
+  "text/css",
+  "application/json",
+  "image/svg+xml",
+  "application/xml",
+  "text/plain",
+]);
+
+function serveFile(req, res, filePath, cacheControl) {
   const ext = path.extname(filePath);
   const contentType = MIME_TYPES[ext] || "application/octet-stream";
 
   const headers = { "Content-Type": contentType };
   if (cacheControl) {
     headers["Cache-Control"] = cacheControl;
+  }
+
+  const acceptEncoding = (req.headers["accept-encoding"] || "").toString();
+  const shouldCompress = COMPRESSIBLE.has(contentType);
+
+  if (shouldCompress && acceptEncoding.includes("gzip")) {
+    headers["Content-Encoding"] = "gzip";
+    headers["Vary"] = "Accept-Encoding";
+    res.writeHead(200, headers);
+    fs.createReadStream(filePath).pipe(zlib.createGzip()).pipe(res);
+    return;
   }
 
   const stream = fs.createReadStream(filePath);
@@ -53,19 +75,19 @@ const server = http.createServer((req, res) => {
     : "public, max-age=0, must-revalidate";
 
   if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
-    serveFile(res, filePath, cacheControl);
+    serveFile(req, res, filePath, cacheControl);
     return;
   }
 
   if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
     const indexPath = path.join(filePath, "index.html");
     if (fs.existsSync(indexPath)) {
-      serveFile(res, indexPath, "public, max-age=0, must-revalidate");
+      serveFile(req, res, indexPath, "public, max-age=0, must-revalidate");
       return;
     }
   }
 
-  serveFile(res, path.join(DIST, "index.html"), "public, max-age=0, must-revalidate");
+  serveFile(req, res, path.join(DIST, "index.html"), "public, max-age=0, must-revalidate");
 });
 
 server.listen(PORT, "0.0.0.0", () => {
