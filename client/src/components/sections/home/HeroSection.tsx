@@ -68,7 +68,7 @@ export function HeroSection() {
           </p>
 
           <div className="hero-fade-5">
-            <Button asChild variant="link-animated" className="no-elevate cta-underline text-sm tracking-[0.08em] hover:border-transparent">
+            <Button asChild variant="link-animated" className="no-elevate cta-underline tracking-[0.08em] hover:border-transparent text-[16px]">
               <a href={`mailto:${CONTACT_EMAIL}`}>
                 Get in Touch
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
