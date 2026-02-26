@@ -98,7 +98,7 @@ export function TestimonialGrid({ testimonials }: TestimonialGridProps) {
               <p className="font-medium text-foreground leading-tight">
                 {testimonial.author}
               </p>
-              <p className="text-sm text-muted-foreground leading-snug mt-0.5">
+              <p className="text-sm text-muted-foreground leading-snug mt-0.5 font-medium">
                 {testimonial.rolePrefix}{" "}
                 <a
                   href={testimonial.companyUrl}
