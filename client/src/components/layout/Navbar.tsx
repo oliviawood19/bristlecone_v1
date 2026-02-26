@@ -14,11 +14,11 @@
 
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
-import { Menu, X, Mail, Linkedin, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/content";
+import { CONTACT_EMAIL } from "@/lib/content";
 import signatureLogo from "@assets/Bristlecone_Signature Logo.png";
 import pineconeLogo  from "@assets/pinecone-logo-transparent.png";
 
@@ -116,9 +116,9 @@ export function Navbar() {
             className="w-[100vw] sm:w-[100vw] h-full border-none bg-background p-0 flex flex-col items-center justify-center"
           >
             <img
-              src={pineconeLogo}
+              src={signatureLogo}
               alt="Bristlecone Companies"
-              className="absolute top-6 left-6 h-10 w-auto object-contain opacity-80"
+              className="absolute top-6 left-6 h-8 w-auto object-contain opacity-80"
             />
             <div className="flex flex-col gap-8 text-center items-center px-6">
               <a
@@ -132,24 +132,13 @@ export function Navbar() {
               </a>
             </div>
 
-            {/* Social / contact links pinned to bottom of overlay */}
-            <div className="absolute bottom-8 flex gap-6 text-muted-foreground">
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="hover:text-foreground transition-colors"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                aria-label="Email us"
-                className="hover:text-foreground transition-colors"
-              >
-                <Mail className="h-5 w-5" />
-              </a>
+            <div className="absolute bottom-10">
+              <Button asChild variant="link-animated" className="no-elevate cta-underline tracking-[0.08em] hover:border-transparent text-[16px]">
+                <a href={`mailto:${CONTACT_EMAIL}`} data-testid="link-get-in-touch-mobile">
+                  Get in Touch
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                </a>
+              </Button>
             </div>
           </SheetContent>
         </Sheet>
