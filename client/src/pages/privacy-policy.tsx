@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
         <div className="container-custom pb-16 sm:pb-24">
           <div className="max-w-3xl mx-auto">
             <div className="bg-white/60 border border-border/60 rounded-2xl p-6 sm:p-10 md:p-12 shadow-[0_2px_12px_rgba(0,0,0,0.04)]">
-              <p className="text-sm text-muted-foreground mb-8 pb-6 border-b border-border/50">
+              <p className="text-sm text-muted-foreground mb-8 pb-6 border-b border-primary">
                 <strong>Last Updated: February 24, 2026</strong>
               </p>
 
