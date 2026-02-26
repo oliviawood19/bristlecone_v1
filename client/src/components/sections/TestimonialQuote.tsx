@@ -99,7 +99,16 @@ export function TestimonialGrid({ testimonials }: TestimonialGridProps) {
                 {testimonial.author}
               </p>
               <p className="text-sm text-muted-foreground leading-snug mt-0.5">
-                {testimonial.role}
+                {testimonial.rolePrefix}{" "}
+                <a
+                  href={testimonial.companyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline transition-all"
+                  data-testid={`link-company-${index}`}
+                >
+                  {testimonial.companyName}
+                </a>
               </p>
             </div>
           </div>

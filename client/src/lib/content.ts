@@ -76,7 +76,9 @@ export const PRINCIPLE_CARDS: PrincipleCard[] = [
 export interface Testimonial {
   quote: string;
   author: string;
-  role: string;
+  rolePrefix: string;
+  companyName: string;
+  companyUrl: string;
   logoImage: string;
   headshotImage: string;
 }
@@ -89,7 +91,9 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       "Most buyers understood what was in the prospectus. Bristlecone understood what we'd actually built — and I recognized in them the same instincts it took to build it.",
     author: "Jay Jump",
-    role: "Co-Founder, Certificate of Service",
+    rolePrefix: "Co-Founder,",
+    companyName: "Certificate of Service",
+    companyUrl: "https://www.certificateofservice.com/",
     logoImage: certServiceLogo,
     headshotImage: jayHeadshot,
   },
@@ -97,7 +101,9 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       "When you're selling something you built with your own hands, you’re on high alert for red flags and your gut instinct matters. I didn't have a single concern with Bristlecone. At the end of it, I sold to people I was happy to call friends.",
     author: "Kathryn Jump",
-    role: "Co-Founder, Certificate of Service",
+    rolePrefix: "Co-Founder,",
+    companyName: "Certificate of Service",
+    companyUrl: "https://www.certificateofservice.com/",
     logoImage: certServiceLogo,
     headshotImage: kathrynHeadshot,
   },
@@ -105,7 +111,9 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       "A lot of buyers will turn around and sell a business again quickly, and the company's identity just disappears. What's impressed me about Bristlecone is that Systrends has kept growing while staying true to what we built. The business has nearly doubled and it still feels like mine.",
     author: "Dave Darnell",
-    role: "Founder, Systrends",
+    rolePrefix: "Founder,",
+    companyName: "Systrends",
+    companyUrl: "https://www.systrends.com/",
     logoImage: systrendsLogo,
     headshotImage: daveHeadshot,
   },
