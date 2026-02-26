@@ -16,7 +16,7 @@ import systrendsLogo from "@assets/systrends-logo.png";
 import certServiceLogo from "@assets/certificate-of-service-logo.png";
 // Testimonial founder headshots — drop replacements into attached_assets/
 import daveHeadshot from "@assets/davedarnell_1772081528113.jpg";
-import kathrynHeadshot from "@assets/2_1772081334415.jpg";
+import kathrynHeadshot from "@assets/kjump_1772081700510.jpg";
 import jayHeadshot from "@assets/3_1772081334416.jpg";
 
 // ─── Contact / mailto URLs ────────────────────────────────────────────────────
