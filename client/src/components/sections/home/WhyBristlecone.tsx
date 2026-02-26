@@ -70,7 +70,7 @@ export function WhyBristlecone() {
            * py-*                   vertical breathing room, matching right col.
            */}
           <motion.div
-            className="pt-12 pb-4 sm:py-16 md:py-24 lg:pt-10 lg:pb-8 lg:sticky lg:top-20 lg:self-start"
+            className="pt-12 pb-4 sm:pt-16 sm:pb-6 md:pt-24 md:pb-8 lg:pt-10 lg:pb-8 lg:sticky lg:top-20 lg:self-start"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -109,7 +109,7 @@ export function WhyBristlecone() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="pt-4 pb-12 sm:py-16 md:py-24 lg:py-32 grid gap-5 sm:gap-6"
+            className="pt-4 pb-12 sm:pt-6 sm:pb-16 md:pt-8 md:pb-24 lg:py-32 grid gap-5 sm:gap-6"
           >
             {PRINCIPLE_CARDS.map((card, i) => (
               <motion.div
