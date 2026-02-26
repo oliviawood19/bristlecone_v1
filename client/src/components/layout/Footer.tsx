@@ -64,7 +64,7 @@ export function Footer() {
               <img
                 src={inc5000Badge}
                 alt="Inc. 5000 — America's Fastest-Growing Private Companies"
-                className="h-16 sm:h-20 md:h-24 w-auto object-contain"
+                className="h-24 sm:h-28 md:h-32 w-auto object-contain"
               />
             </div>
           </div>
