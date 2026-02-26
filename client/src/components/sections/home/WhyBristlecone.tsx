@@ -129,7 +129,7 @@ export function WhyBristlecone() {
                   <h4 className="sm:text-lg md:text-xl font-serif font-bold text-primary-foreground mb-2 text-[18px]">
                     {card.title}
                   </h4>
-                  <p className="text-sm sm:text-base leading-relaxed text-primary-foreground/80">
+                  <p className="sm:text-base text-primary-foreground/80 text-[18px]">
                     {card.desc}
                   </p>
                 </div>
