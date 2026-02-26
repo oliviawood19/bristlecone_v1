@@ -25,12 +25,17 @@ const MIME_TYPES = {
   ".webmanifest": "application/manifest+json",
 };
 
-function serveFile(res, filePath) {
+function serveFile(res, filePath, cacheControl) {
   const ext = path.extname(filePath);
   const contentType = MIME_TYPES[ext] || "application/octet-stream";
 
+  const headers = { "Content-Type": contentType };
+  if (cacheControl) {
+    headers["Cache-Control"] = cacheControl;
+  }
+
   const stream = fs.createReadStream(filePath);
-  res.writeHead(200, { "Content-Type": contentType });
+  res.writeHead(200, headers);
   stream.pipe(res);
   stream.on("error", () => {
     res.writeHead(500);
@@ -42,20 +47,25 @@ const server = http.createServer((req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
   let filePath = path.join(DIST, url.pathname);
 
+  const isAssets = url.pathname.startsWith("/assets/");
+  const cacheControl = isAssets
+    ? "public, max-age=31536000, immutable"
+    : "public, max-age=0, must-revalidate";
+
   if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
-    serveFile(res, filePath);
+    serveFile(res, filePath, cacheControl);
     return;
   }
 
   if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
     const indexPath = path.join(filePath, "index.html");
     if (fs.existsSync(indexPath)) {
-      serveFile(res, indexPath);
+      serveFile(res, indexPath, "public, max-age=0, must-revalidate");
       return;
     }
   }
 
-  serveFile(res, path.join(DIST, "index.html"));
+  serveFile(res, path.join(DIST, "index.html"), "public, max-age=0, must-revalidate");
 });
 
 server.listen(PORT, "0.0.0.0", () => {
