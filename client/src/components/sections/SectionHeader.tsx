@@ -39,10 +39,7 @@ export function SectionHeader({
       </motion.span>
       <motion.h2
         variants={itemVariants}
-        className={cn(
-          "font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4 sm:mb-6 leading-tight",
-          titleClassName
-        )}
+        className="font-serif sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4 sm:mb-6 text-[32px]"
       >
         {title}
       </motion.h2>
