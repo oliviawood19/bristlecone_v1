@@ -59,7 +59,7 @@ export function WhyBristlecone() {
        * has the full scroll height of the right column to work with.
        */}
       <div className="container-custom">
-        <div className="relative grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-20 items-start">
+        <div className="relative grid lg:grid-cols-2 gap-2 sm:gap-4 lg:gap-20 items-start">
 
           {/* ── Left: sticky text panel ────────────────────────────────── */}
           {/*
@@ -70,7 +70,7 @@ export function WhyBristlecone() {
            * py-*                   vertical breathing room, matching right col.
            */}
           <motion.div
-            className="pt-12 pb-4 sm:pt-16 sm:pb-6 md:pt-24 md:pb-8 lg:pt-10 lg:pb-8 lg:sticky lg:top-20 lg:self-start"
+            className="pt-12 pb-2 sm:pt-16 sm:pb-4 md:pt-24 md:pb-6 lg:pt-10 lg:pb-8 lg:sticky lg:top-20 lg:self-start"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -109,7 +109,7 @@ export function WhyBristlecone() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="pt-4 pb-12 sm:pt-6 sm:pb-16 md:pt-8 md:pb-24 lg:py-32 grid gap-5 sm:gap-6"
+            className="pt-2 pb-16 sm:pt-4 sm:pb-20 md:pt-6 md:pb-28 lg:py-32 grid gap-5 sm:gap-6"
           >
             {PRINCIPLE_CARDS.map((card, i) => (
               <motion.div
