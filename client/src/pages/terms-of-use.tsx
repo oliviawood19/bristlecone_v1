@@ -5,10 +5,9 @@ export default function TermsOfUse() {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Navbar />
-
       <main className="flex-1">
         <div className="container-custom pt-32 pb-6 sm:pt-40 sm:pb-8">
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-primary leading-tight max-w-3xl mx-auto">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-primary leading-tight max-w-3xl mx-auto text-center">
             Terms of Use
           </h1>
         </div>
@@ -253,7 +252,6 @@ export default function TermsOfUse() {
           </div>
         </div>
       </main>
-
       <Footer />
     </div>
   );
