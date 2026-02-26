@@ -8,13 +8,13 @@ export default function PrivacyPolicy() {
 
       <main className="flex-1">
         <div className="container-custom pt-32 pb-6 sm:pt-40 sm:pb-8">
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-primary leading-tight">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-primary leading-tight max-w-3xl mx-auto">
             Privacy Policy
           </h1>
         </div>
 
         <div className="container-custom pb-16 sm:pb-24">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto">
             <div className="bg-white/60 border border-border/60 rounded-2xl p-6 sm:p-10 md:p-12 shadow-[0_2px_12px_rgba(0,0,0,0.04)]">
               <p className="text-sm text-muted-foreground mb-8 pb-6 border-b border-border/50">
                 <strong>Last Updated: February 24, 2026</strong>
