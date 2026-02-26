@@ -23,6 +23,7 @@ export function Footer() {
               className="h-10 sm:h-12 md:h-14 w-auto object-contain brightness-0 invert opacity-90"
             />
 
+            {/* Nav links hidden until more pages are added
             <nav aria-label="Footer navigation">
               <ul className="flex flex-wrap justify-center items-center gap-3 sm:gap-4">
                 {FOOTER_NAV_LINKS.map((link) => (
@@ -48,6 +49,7 @@ export function Footer() {
                 ))}
               </ul>
             </nav>
+            */}
 
             <div className="flex items-center gap-4">
               <a
