@@ -60,7 +60,7 @@ export function HeroSection() {
           </h1>
 
           <p
-            className="hero-fade-4 font-sans sm:text-xl md:text-[22px] max-w-[48ch] mb-10 sm:mb-12 text-[18px] text-[#6b6b61] font-medium"
+            className="hero-fade-4 font-sans sm:text-xl md:text-[22px] max-w-[48ch] mb-10 sm:mb-12 text-[18px] text-[#6b6b61] font-medium lg:font-light"
           >
             Bristlecone acquires and operates essential businesses to steward
             what matters most—people, customers, and legacy—and unlock their
