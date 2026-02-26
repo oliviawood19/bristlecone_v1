@@ -42,7 +42,6 @@ export function WhyBristlecone() {
      * bg-background matches the shared design token used by <Section background="default">.
      */
     <section id="what-we-do" className="relative bg-background">
-
       {/* Very subtle noise texture over the section background */}
       <div
         aria-hidden="true"
@@ -52,7 +51,6 @@ export function WhyBristlecone() {
             'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")',
         }}
       />
-
       {/*
        * container-custom centres content and applies horizontal padding.
        * No vertical padding here — each column carries its own so sticky
@@ -128,7 +126,7 @@ export function WhyBristlecone() {
 
                 {/* Card content — z-10 to sit above the overlay */}
                 <div className="relative z-10">
-                  <h4 className="text-base sm:text-lg md:text-xl font-serif font-bold text-primary-foreground mb-2">
+                  <h4 className="sm:text-lg md:text-xl font-serif font-bold text-primary-foreground mb-2 text-[18px]">
                     {card.title}
                   </h4>
                   <p className="text-sm sm:text-base leading-relaxed text-primary-foreground/80">
