@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { useEffect } from "react";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
+import PrivacyPolicy from "@/pages/privacy-policy";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -23,6 +24,7 @@ function Router() {
       <ScrollToTop />
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route component={NotFound} />
       </Switch>
     </>

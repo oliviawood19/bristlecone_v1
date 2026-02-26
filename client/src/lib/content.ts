@@ -140,7 +140,7 @@ export const FOOTER_NAV_LINKS: FooterLink[] = [
  * Replace "#" with real policy URLs when they're ready.
  */
 export const FOOTER_LEGAL_LINKS: FooterLink[] = [
-  { label: "Privacy Policy", href: "#" }, // TODO: add real URL
+  { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms and Conditions", href: "#" }, // TODO: add real URL
 ];
 
