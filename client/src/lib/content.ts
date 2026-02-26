@@ -22,7 +22,7 @@ import jayHeadshot from "@assets/jay-jump.jpg";
 // ─── Contact / mailto URLs ────────────────────────────────────────────────────
 
 /** Primary contact email displayed in the footer and navbar */
-export const CONTACT_EMAIL = "hello@bristleconecompanies.com";
+export const CONTACT_EMAIL = "info@bristleconecompanies.com";
 
 /**
  * Pre-populated mailto link for business owners exploring a sale.
